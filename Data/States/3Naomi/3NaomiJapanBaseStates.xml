@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFleetCommand_NavyHarrassment"
+    MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="2" MaxUnits="4"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="SuperiorJapanNavyMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFleetCommand_NavyAttack"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestWaterStructureHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="CloseToShoreStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="5" MaxUnits="30"
+                    IncludeKindOf="CAN_ATTACK VEHICLE" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="SuperiorJapanNavyMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFleetCommand_RocketAngelSupport"
+    MaxTargets="5">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestFriendlyVehicleHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="ClosestFriendlyUnitHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="StaticDefense" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true"
+                    MicroManager="SuperiorFleetCommandMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiVehicleInfantryTech3</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorFleetCommand_LandAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorEnemyMCVHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack1Heuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack2Heuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack3Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack5Heuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack6Heuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="16" MaxUnits="22"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="SuperiorFleetCommandMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

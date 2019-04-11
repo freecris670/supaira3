@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="OlgaSovietCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Olga"
+		PersonalityType="Olga"
+		inheritFrom="OlgaSovietCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Olga"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="SovietStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="SovietIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="SB_DualRax_Warfactory_tech2End" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="SB_island_Naval_Tech2End" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+
+    <!-- Easy to swap STATES -->
+
+    <!-- ATTACK STATES -->
+		<StrategicState id="S_Avoid_3to20_StandardMicro_1.0PowAdv" State="S_Avoid_3to20_StandardMicro_1.0PowAdv" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="Water_Avoid_2to7_SovNavalAttackMicro" State="Water_Avoid_2to7_SovNavalAttackMicro" Difficulty="HARD BRUTAL"/>
+
+    <!-- TECH STATES -->
+    <BuildState id="SlowPacedSovietTechBuildState" State="SlowPacedSovietTechBuildState" Difficulty="HARD BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="SuperiorInsaneFastSafeSovietExpansion" State="SuperiorInsaneFastSafeSovietExpansion" Difficulty="HARD BRUTAL"/>
+
+    <!-- BRUTAL BUILD STATES -->
+    <BuildState id="3ZhanaBrutalSovietAirfieldSpam" State="3ZhanaBrutalSovietAirfieldSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorINFINITEBrutalSovietAirfieldSpam" State="SuperiorINFINITEBrutalSovietAirfieldSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+
+    <!-- TEAM WORK STATES -->
+<!--
+    <StrategicState id="SuperiorDefendAllyAircraft" State="SuperiorDefendAllyAircraft" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietDefendAllyOnLand" State="SuperiorSovietDefendAllyOnLand" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietDefendAllyOnWater" State="SuperiorSovietDefendAllyOnWater" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietSupportAllyAttack" State="SuperiorSovietSupportAllyAttack" Difficulty="HARD BRUTAL"/>
+-->
+
+    <!-- SPECIAL STATES -->
+    <StrategicState id="SuperiorSovietEngineerCapturesAnySafeTech" State="SuperiorSovietEngineerCapturesAnySafeTech" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorTDDrop" State="SuperiorTDDrop" Difficulty="HARD BRUTAL"/>
+
+
+
+    <!-- Main Offensive States - MEDIUM -->
+    <StrategicState id="GrowingAttacks_Land_MEDIUM" State="GrowingAttacks_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="GrowingAttacks_Water_MEDIUM" State="GrowingAttacks_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+    <UnitModifier Unit="SovietFighterAircraft" OffensiveModifier="28.0" DefensiveModifier="31.0"/>
+    <UnitModifier Unit="SovietAntiGroundAircraft" OffensiveModifier="30.0" DefensiveModifier="30.0"/>
+    <UnitModifier Unit="SovietBomberAircraft" OffensiveModifier="33.0" DefensiveModifier="5.6"/> <!-- The Kirov's horrendous speed negates most of its high hitpoints -->
+
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_TerrorDroneEggs" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank1" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank2" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank3" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Soviet" Weight="999999%"/>
+
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>

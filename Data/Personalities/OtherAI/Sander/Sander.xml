@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+    <Include type="instance" source="SanderAlliedCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  <AIPersonalityDefinition id="Sander" PersonalityType="Sander" inheritFrom="SanderAlliedCoopBaseSkirmishPersonality" SkirmishPersonality="true" PersonalityUIName="Personality:Sander">
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <OpeningMove Name="SanderStandard_MEDIUM" Weight="150%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderStandard_Hard" Weight="100%" Difficulty="HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderStandard_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderStandard_BRUTAL_NavalYard" Weight="0%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+        <CanBuildBuildingsOnSurfaceHeuristic MinPlacementGridCells="15" Surfaces="WATER"></CanBuildBuildingsOnSurfaceHeuristic>
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="AlliedIsland" Weight="100%" Difficulty="EASY MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderIsland_HARD" Weight="100%" Difficulty="HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderIsland_BRUTAL" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderIsland_BRUTAL_WarFac" Weight="0%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+        <CanBuildBuildingsOnSurfaceHeuristic MinPlacementGridCells="15" Surfaces="LAND"></CanBuildBuildingsOnSurfaceHeuristic>
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="SanderTech_BRUTAL_Chronosphere" Weight="0%" Difficulty="EASY MEDIUM HARD BRUTAL"></OpeningMove>
+    <!-- Main Offensive States -->
+    <StrategicState id="Sander_InfantryAttack" State="Sander_InfantryAttack" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_TankRush" State="Sander_TankRush" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_NavalAttack" State="Sander_NavalAttack" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_DestroyerHarassement" State="Sander_DestroyerHarassement" Difficulty="HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_CarrierBombardment" State="Sander_CarrierBombardment" Difficulty="HARD BRUTAL"></StrategicState>
+    <StrategicState id="VindicatorController_Beginning" State="VindicatorController_Beginning" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_HydrofoilHarassement" State="Sander_HydrofoilHarassement" Difficulty="HARD BRUTAL"></StrategicState>
+    <!--Main Defensive States-->
+    <StrategicState id="Sander_CarrierDefense_OWN" State="Sander_CarrierDefense_OWN" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_CarrierDefense_ALLIES" State="Sander_CarrierDefense_ALLIES" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_BomberDefense_ALLIES" State="Sander_BomberDefense_ALLIES" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_MoneyTechDefense" State="Sander_MoneyTechDefense" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <StrategicState id="Sander_RefineryDefense" State="Sander_RefineryDefense" Difficulty="EASY MEDIUM HARD BRUTAL"></StrategicState>
+    <!--Expansion States-->
+    <StrategicState id="SanderExpansion_BRUTAL" State="SanderExpansion_BRUTAL" Difficulty="BRUTAL"></StrategicState>
+    <!--Build States-->
+    <BuildState id="SanderTechBuildState" State="SanderTechBuildState" Difficulty="HARD BRUTAL"></BuildState>
+    <BuildState id="SanderNavalYardBuild" State="SanderNavalYardBuild" Difficulty="HARD BRUTAL"></BuildState>
+    <!--Spam States-->
+    <BuildState id="SanderFactorySpam_NonIsland" State="SanderFactorySpam_NonIsland" Difficulty="BRUTAL" />
+    <BuildState id="SanderFactorySpam_Island" State="SanderFactorySpam_Island" Difficulty="BRUTAL"></BuildState>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorINFINITEBrutalAlliedWarfactorySpam" State="SuperiorINFINITEBrutalAlliedWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedNavalYardSpam" State="SuperiorINFINITEBrutalAlliedNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedAirfieldSpam" State="SuperiorINFINITEBrutalAlliedAirfieldSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+
+
+    <!-- Unit Preferences -->
+    <UnitModifier Unit="AlliedAntiVehicleVehicleTech3" OffensiveModifier="6.0" DefensiveModifier="3.0" />
+    <UnitModifier Unit="AlliedAntiNavyShipTech1" OffensiveModifier="1.8" DefensiveModifier="1.5"></UnitModifier>
+    <UnitModifier Unit="AlliedAntiStructureShip" OffensiveModifier="5.0" DefensiveModifier="2.5" />
+    <UnitModifier Unit="AlliedFighterAircraft" OffensiveModifier="2.0" DefensiveModifier="2.0" />
+    <!--Prefered Support Powers-->
+    <PowerChoice PlayerPower="PlayerTech_Allied_AirPower" Weight="9999999%" />
+  </AIPersonalityDefinition>
+</AssetDeclaration>

@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="JapanUnorthodoxRandomUnits">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <BuildEntry Build="JapanBarracksEgg" Heuristic="FACTORY"/>
+    <BuildEntry Build="JapanNavalYardEgg" Heuristic="FACTORY"/>
+    <BuildEntry Build="JapanWarFactoryEgg" Heuristic="FACTORY"/>
+
+    <BuildEntry Build="JapanMiner" Heuristic="HARVESTER"/>
+
+    <BuildEntry Build="JapanScoutInfantry" Heuristic="RANDOM_UNIT"  PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiInfantryInfantry" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiVehicleInfantry" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiVehicleInfantryTech3" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanInfiltrationInfantry" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanCommandoTech1" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+
+    <BuildEntry Build="JapanAntiInfantryVehicle" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiAirVehicleTech1" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiVehicleVehicleTech1" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiVehicleVehicleTech3" Heuristic="RANDOM_UNIT"  PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiStructureVehicle" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+
+		<BuildEntry Build="JapanNavyScoutShip" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiVehicleVehicleTech1_Naval" Heuristic="RANDOM_UNIT"  PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiAirShip" Heuristic="RANDOM_UNIT"  PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiVehicleShip" Heuristic="RANDOM_UNIT" PercentHigh="59"/>
+    <BuildEntry Build="JapanAntiStructureShip" Heuristic="RANDOM_UNIT"  PercentHigh="59"/>
+
+  </AIBuildStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorUnorthodoxJapanExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="120s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="5" MinPowerAdvantage="2.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorJapanUnorthodoxTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1000.0" EnemyNearby="false"  MinEnemyValue="4500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech3" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="150s"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorJapanUnorthodoxIslandTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1000.0" EnemyNearby="false"  MinEnemyValue="4500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="false" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="150s"/>
+  </AIBuildStateDefinition>
+
+
+
+</AssetDeclaration>

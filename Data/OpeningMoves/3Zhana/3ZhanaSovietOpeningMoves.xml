@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <!-- SovietPowerPlant = 10  seconds -->
+  <!-- SovietBarracks   = 10  seconds -->
+  <!-- SovietRefinery   = 20 seconds -->
+  <!-- SovietWarFactory = 20 seconds -->
+  <!-- SovietPowerPlantAdvanced = 30 seconds -->
+  <!-- SovietAirfield   = 30 seconds -->
+  <!-- SovietTechStructure = 40 seconds -->
+  <!-- SovietNavalYard = 20 seconds -->
+
+  <SkirmishOpeningMove
+    id="SuperiorBrutalSovietAirfield"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="120s" />
+    <Order Build="SovietAirfield" />
+    <Order Time="150s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorZhanaIsland"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietNavalYard" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="3000" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietAirfield" />
+    <Order Time="135s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorBrutalZhanaIsland"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietNavalYard" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="4200" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietAirfield" />
+    <Order Time="135s" />
+  </SkirmishOpeningMove>
+
+</AssetDeclaration>

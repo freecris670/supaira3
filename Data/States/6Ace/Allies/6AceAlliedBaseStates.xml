@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+
+  <AIStrategicStateDefinition
+    id="SuperiorAceExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="180s" EndTime="600s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="170s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAceBackupExpand1"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="600s" EndTime="900s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="170s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAceBackupExpand2"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="910s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="170s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorAceAlliedTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="3000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="AlliedNavalYard" Heuristic="FACTORY"/>
+    <BuildEntry Build="AlliedWarFactory" Heuristic="FACTORY"/>
+    <BuildEntry Build="AlliedAirfield" Heuristic="TECH" MinTime="240s"/>
+    <BuildEntry Build="AlliedTechStructure" Heuristic="TECH" MinTime="500s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech2" Heuristic="UPGRADE_TECH" MinTime="270s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech3" Heuristic="UPGRADE_TECH" MinTime="400s"/>
+    <BuildEntry Build="AlliedSuperWeapon" Heuristic="TECH" MinTime="520s"/>
+    <BuildEntry Build="AlliedSuperWeaponAdvanced" Heuristic="TECH" MinTime="520s"/>
+  </AIBuildStateDefinition>
+
+
+  <AIStrategicStateDefinition
+    id="SuperiorAceAttackGround"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorEnemyMCVHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack1Heuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack2Heuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack3Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack5Heuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack6Heuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="4" MaxUnits="25" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorAceMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirVehicleTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAceAttackWater"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterHarvesterHeuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="50"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="20" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorNavalAttackMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAceRiptideAttackWater"
+    MaxTargets="1">
+    <Heuristic>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="1000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="INFANTRY">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterHarvesterHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="2" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="SuperiorNavalAttackMicroManager">
+        <ObjectFilter Rule="ALL">
+          <IncludeThing>AlliedAntiInfantryVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

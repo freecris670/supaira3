@@ -1,0 +1,886 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAlliedExpandFaster"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="360s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="90s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion"  EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAlliedExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="120s" EndTime="240s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="110s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorBrutalAlliedExpandFaster"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="350s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="85s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorBrutalAlliedExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="200s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorJapaneseExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="140s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="90s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietsExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="220s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietsExpansionFaster"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="320s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="80s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorBrutalJapaneseExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="110s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorBrutalSovietsExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowAlliedExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="180s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="170s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ClassicAlliedExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="120s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ClassicAlliedExpansionBRUTAL"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ClassicJapanExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="240s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="90s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  <AIStrategicStateDefinition
+    id="ClassicJapanExpansionBRUTAL"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="200s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ClassicSovietExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="120s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ClassicSovietExpansionBRUTAL"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowJapanExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="180s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="150s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false"  MinEnemyValue="2500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowSovietExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="160s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="150s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowPacedAlliesExpandFaster"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="540s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="120s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion"  EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowPacedAlliesExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="120s" EndTime="540s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="180s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowPacedJapanExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="120s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="180s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowPacedSovietExpandFaster"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="540s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="120s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietSurveyor</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SlowPacedSovietExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="120s" EndTime="540s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="180s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>SovietSurveyor</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorBrutalInsaneFastSovietsExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="80s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="45s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="InsanelyFastAlliesExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="InsanelyFastJapanExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="90s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="50s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAlliesInsaneFastSafeExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorInsaneFastSafeJapanExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="120s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="5" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorInsaneFastSafeSovietExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="5" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorAlliesSafeExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="120s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="115s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="PavelSovietExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="120s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="135s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="825.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="7" MaxUnits="7" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="true"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="GentaroExpand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="90s" EndTime="-1s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <TimeSinceLastExpansionHeuristic Time="50s"/>
+      <AllNearbyNodesFullHeuristic/>
+      <OpenNodeHeuristic Exists="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1" 
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

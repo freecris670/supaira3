@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="HidehisaJapanCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Hidehisa"
+		PersonalityType="Hidehisa"
+		inheritFrom="HidehisaJapanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Hidehisa"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="JapanStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="JapanIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JapanStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JapanIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="J_MechaBuild" Weight="100%" Difficulty="HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JB_Mecha" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JB_Island_Naval" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <!-- Easy to swap STATES -->
+
+    <!-- ATTACK STATES -->
+		<StrategicState id="SimpleAttack_5to13_JapanStandardMicro" State="SimpleAttack_5to13_JapanStandardMicro" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="Water_SimpleAttack_AR_2to16_JapStandardMicro" State="Water_SimpleAttack_AR_2to16_JapStandardMicro" Difficulty="HARD BRUTAL"/>
+
+    <!-- TECH STATES -->
+    <BuildState id="ClassicJapanTechBuildState" State="ClassicJapanTechBuildState" Difficulty="HARD BRUTAL"/>
+    <BuildState id="ClassicIslandJapanTechBuildState" State="ClassicIslandJapanTechBuildState" Difficulty="HARD BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="SuperiorJapaneseExpansion" State="SuperiorJapaneseExpansion" Difficulty="HARD"/>
+
+    <StrategicState id="SuperiorBrutalJapaneseExpansion" State="SuperiorBrutalJapaneseExpansion" Difficulty="BRUTAL"/>
+
+
+        <!-- BRUTAL BUILD STATES -->
+    <BuildState id="SuperiorBrutalJapanWarfactorySpam" State="SuperiorBrutalJapanWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalJapanNavalYardSpam" State="SuperiorBrutalJapanNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="4AggroBrutalJapanBarracksSpam" State="4AggroBrutalJapanBarracksSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorInfiniteBrutalJapanWarfactorySpam" State="SuperiorInfiniteBrutalJapanWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorInfiniteBrutalJapanNavalYardSpam" State="SuperiorInfiniteBrutalJapanNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorInfiniteBrutalJapanDojoSpam" State="SuperiorInfiniteBrutalJapanDojoSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+    <!-- TEAM WORK STATES -->
+<!--
+    <StrategicState id="SuperiorDefendAllyAircraft" State="SuperiorDefendAllyAircraft" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorJapanDefendAllyOnLand" State="SuperiorJapanDefendAllyOnLand" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorJapanDefendAllyOnWater" State="SuperiorJapanDefendAllyOnWater" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorJapanSupportAllyAttack" State="SuperiorJapanSupportAllyAttack" Difficulty="HARD BRUTAL"/>
+-->
+
+    <!-- SPECIAL STATES -->
+
+		<!-- Main Offensive States - MEDIUM -->
+		<StrategicState id="BalancedAttackGround_MEDIUM" State="BalancedAttackGround_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackWater_MEDIUM" State="BalancedAttackWater_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackOverwhelm_MEDIUM" State="BalancedAttackOverwhelm_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_EnhancedKamikaze" Weight="9999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_PointDefenseDrones" Weight="9999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_NavalPower" Weight="99999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank1" Weight="999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank2" Weight="999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_EmperorsRage_Rank3" Weight="999%"/>
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>

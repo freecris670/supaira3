@@ -1,0 +1,661 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_RiptideAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiInfantryVehicle</IncludeThing>
+          <IncludeThing>AlliedAntiInfantryVehicle_Ground</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="WaterHarvester" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="WaterRefineries" Priority="999"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="3"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="HIGH" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ChampionKadenStandardMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiInfantryVehicle</IncludeThing>
+          <IncludeThing>AlliedAntiInfantryVehicle_Ground</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_CarrierGuards"
+    MaxTargets="3">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="OwnBombardmentShipHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="350" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="5" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="HIGH"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ChampionKadenCarrierGuardsMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+          <IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+          <IncludeThing>AlliedAntiNavalScout</IncludeThing>
+          <IncludeThing>AlliedSupportAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_CarrierManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="1"/>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL_INWATER" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL_INWATER" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES_INWATER" Priority="99"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="4" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="ChampionKadenCarrierMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_AthenaCannonManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES" Priority="40"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="VEHICLES"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ChampionKadenWaveForceArtilleryMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_HydrofoilManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirAirborneTargetHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="OwnBombardmentShipHeuristic" Priority="999"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="SHIPS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="ChampionKadenHydroFoilMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_AssaultDestroyerManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="OwnBombardmentShipHeuristic" Priority="9999"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="WaterHarvester" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="WaterRefineries" Priority="999"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="ChampionKadenAssaultDestroyerMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_TanyaController"
+    MaxTargets="1">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedCommandoTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorOtherClosestTerrorDronesHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout2Heuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="ClosestWaterSiegeUnitHeuristicAllEnemies" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SuperiorAntiInfantryHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="40"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="INFANTRY"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TanyaMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedCommandoTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_AlliedScout"
+    MaxTargets="2"
+		CannotAttackTargetReaction="Ignore">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorScout3Heuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout2Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorScout1Heuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SafestStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="LOW" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ScoutMicroManager">
+        <CreateUnits UnitName="AlliedScoutInfantry" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_TanyaDrop"
+    MaxTargets="1">
+    <Heuristic>
+<!--
+      <IntervalHeuristic IntervalTime="87s" ActiveTime="30s"/>
+-->
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedCommandoTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropConYardHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropTechKillHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropSuperReactorHeuristic" Priority="90"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="2" MaxUnits="2"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK INFANTRY COMMANDO" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ChampionKadenTanyaDropMicroManager">
+        <CreateUnits UnitName="AlliedBomberAircraft" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_VindicatorDefense"
+    MaxTargets="99">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <EnemyNearbyHeuristic Distance="500.0" EnemyNearby="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorCounterDojoPushHeuristic" Priority="999990"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillCoresHeuristic" Priority="999990"/>
+    <TargetHeuristic TargetHeuristic="ClosestSurfaceUnitHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="HIGH" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="ChampionKadenFearlessVindicatorMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+ <AIStrategicStateDefinition
+    id="ChampionKaden_VindicatorAttack"
+    MaxTargets="99">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorKillCoresHeuristic" Priority="999990"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTISPUTNIK2Heuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTISPUTNIKHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="EngineerUnitHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKILLVehicleNOHARVHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillBaseDefenses" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKILLSURFACETHINGSNOHARVSHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirPowerPlantHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestStructureHeuristic_NonUnique" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="ChampionKadenVindicatorMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_ApolloManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedFighterAircraft</IncludeThing>
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTwinvindTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSVXTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSAnyAirTargetHeuristic" Priority="30"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK FIGHTER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="ChampionKadenFighterAircraftMicroManager" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_CenturyBomberManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersHeuristic" Priority="990"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersPOWERHeuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersAIRFIELDHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="99999"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersWarFacHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK BOMBER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ChampionKadenCENTURYMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_Expand"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="180s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="170s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" EndBehavior="DISBAND" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="SuperiorAlliedExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="ChampionKadenTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1300.0" EnemyNearby="false" MinEnemyValue="4000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="AlliedAirfield" Heuristic="TECH" MinTime="180s"/>
+    <BuildEntry Build="AlliedTechStructure" Heuristic="TECH" MinTime="540s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech2" Heuristic="UPGRADE_TECH" MinTime="220s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech3" Heuristic="UPGRADE_TECH" MinTime="400s"/>
+    <BuildEntry Build="AlliedSuperWeapon" Heuristic="TECH" MinTime="540s"/>
+    <BuildEntry Build="AlliedSuperWeaponAdvanced" Heuristic="TECH" MinTime="540s"/>
+  </AIBuildStateDefinition>
+
+
+  <AIStrategicStateDefinition
+    id="ChampionKadenLandDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyLandStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="450" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="ChampionKadenDefenseLandMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKadenLandEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByLandEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="ChampionKadenEmergencyLandDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKadenWaterDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyWaterStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="450" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="ChampionKadenDefenseWaterMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ChampionKadenWaterEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByWaterEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="ChampionKadenEmergencyWaterDefenseMicroManager">
+        <ObjectFilter Rule="ALL">
+          <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_AttackState"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorOutPostTargetHeuristic" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack1Heuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack2Heuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack3Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="111"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack5Heuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack6Heuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="10" MaxUnits="20"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="ChampionKadenStandardMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+  <AIStrategicStateDefinition
+    id="ChampionKaden_WaterAttackState"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="ClosestWaterStructureHeuristic_NonUnique" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="20"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="ChampionKadenNavalAttackMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

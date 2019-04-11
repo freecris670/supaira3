@@ -1,0 +1,690 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+
+
+
+
+  <AIBuildStateDefinition
+    id="TysonTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="3000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="AlliedAirfield" Heuristic="TECH" MinTime="140s"/>
+    <BuildEntry Build="AlliedTechStructure" Heuristic="TECH" MinTime="420s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech2" Heuristic="UPGRADE_TECH" MinTime="120s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech3" Heuristic="UPGRADE_TECH" MinTime="360s"/>
+    <BuildEntry Build="AlliedSuperWeapon" Heuristic="TECH" MinTime="420s"/>
+    <BuildEntry Build="AlliedSuperWeaponAdvanced" Heuristic="TECH" MinTime="420s"/>
+  </AIBuildStateDefinition>
+
+
+
+
+
+
+
+<!-- STRATEGIC STATES -->
+
+  <AIStrategicStateDefinition
+    id="TysonRiptideWaterAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiInfantryVehicle</IncludeThing>
+          <IncludeThing>AlliedAntiInfantryVehicle_Ground</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="WaterHarvester" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="WaterRefineries" Priority="999"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="3"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TysonStandardMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiInfantryVehicle</IncludeThing>
+          <IncludeThing>AlliedAntiInfantryVehicle_Ground</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonCarrierGuards"
+    MaxTargets="3">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="OwnBombardmentShipHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="350" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="5" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="HIGH"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="YurikoServantsMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+          <IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+          <IncludeThing>AlliedAntiNavalScout</IncludeThing>
+          <IncludeThing>AlliedSupportAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonSpyManager"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestOwnInfantrySPYHeuristic" Priority="999999"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="100" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="INFILTRATOR" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TysonSpyMicroManager" >
+        <CreateUnits UnitName="AlliedInfiltrationInfantry" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonCarrierManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="1"/>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL_INWATER" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL_INWATER" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES_INWATER" Priority="99"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="4" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruFearlessShogunMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonAssaultDestroyerManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="OwnBombardmentShipHeuristic" Priority="9999"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="WaterHarvester" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="WaterRefineries" Priority="999"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="LOW" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TysonAssaultDestroyMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiNavyShipTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonHydrofoilManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirAirborneTargetHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="OwnBombardmentShipHeuristic" Priority="999"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="SHIPS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="TysonHydroFoilMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonAthenaCannonManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEMDEFENSES" Priority="40"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="VEHICLES"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TysonStandardMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonCryoManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedSupportAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirSurfaceUnitHeuristic" Priority="40"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="3"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="TysonCryoMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedSupportAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonApolloManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedFighterAircraft</IncludeThing>
+          <IncludeThing>SovietFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirAirborneTargetHeuristic"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK FIGHTER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="TysonApolloMicroManager" />
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonScout"
+    MaxTargets="3"
+		CannotAttackTargetReaction="Ignore">
+    <Heuristic>
+      <ConstantHeuristic/>
+      <IntervalHeuristic IntervalTime="120s" ActiveTime="30s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestStructureHeuristic"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="ScoutMicroManager">
+        <CreateUnits UnitName="AlliedScoutInfantry" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+      id="TysonCapturePriorityTech"
+      MaxTargets="1">
+    <Heuristic>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false"/>
+      <TechBuildingShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestSafestMoneyTechHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="ClosestSafestVeterancyTechHeuristic" Priority="10"/>
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    MicroManager="CaptureAnythingMicroManager">
+        <CreateUnits UnitName="AlliedEngineer" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+   <AIStrategicStateDefinition
+    id="TysonAlliedExpansion_HARD"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonAlliedExpansion_BRUTAL"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="85s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false"/>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  <AIStrategicStateDefinition
+    id="TysonAirDrop"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="5" MaxUnits="5" MinPowerAdvantage="1.0" IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false"
+                    MicroManager="BomberAircraftMicroManager" >
+        <CreateUnits UnitName="AlliedBomberAircraft" MinUnits="1" MaxUnits="1"/>
+        <ObjectFilter Rule="ALL">
+          <IncludeThing>AlliedAntiVehicleInfantry</IncludeThing>
+          <IncludeThing>AlliedAntiInfantryInfantry</IncludeThing>
+          <IncludeThing>AlliedScoutInfantry</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonVindiDefend"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestSurfaceUnitHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="HIGH" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="FearlessVindicatorMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonVindiAttack"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorvindikillfrozenUnitsHeuristic" Priority="9999"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTISPUTNIKHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTISPUTNIK2Heuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillCoresHeuristic" Priority="9999"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKILLVehicleNOHARVHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKILLSURFACETHINGSNOHARVSHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillBaseDefenses" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SuperiorCounterDojoPushHeuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="TysonVindicatorMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="CenturyBomberMANAGER"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersHeuristic" Priority="990"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersPOWERHeuristic" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersAIRFIELDHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="99999"/>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersWarFacHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="2"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK BOMBER_AIRCRAFT" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="CENTURYMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonAttackGround"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToGroundHarvesterHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="13" MaxUnits="25"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TysonStandardMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonAttackWater"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToWaterHarvesterHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="20"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TysonStandardMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+<!-- DEFENSE STATES -->
+
+  <AIStrategicStateDefinition
+    id="TysonLandDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyLandStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="750" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="15"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="TysonDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonLandEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByLandEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="10"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="TysonDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonWaterDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyWaterStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="750" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="TysonDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TysonWaterEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByWaterEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="TysonDefenseMicroManager">
+        <ObjectFilter Rule="ALL">
+          <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

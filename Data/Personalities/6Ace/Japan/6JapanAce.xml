@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="6JapanAceJapanCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="6JapanAce"
+		PersonalityType="Yutaka"
+		inheritFrom="6JapanAceJapanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Yutaka"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="JapanStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="JapanIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+<!-- HARD DIFFICULTY -->
+
+   <OpeningMove Name="AceJapanStandard" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+   <OpeningMove Name="J_3Refstart_NavalEnd" Weight="150%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+<!-- BRUTAL DIFFICULTY -->
+   <OpeningMove Name="AceBrutalJapanStandard1" Weight="200%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+   <OpeningMove Name="JB_Island_3RefStart_NYRAXend" Weight="150%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+
+
+        <!-- BRUTAL BUILD STATES -->
+    <BuildState id="SuperiorBrutalJapanWarfactorySpam" State="SuperiorBrutalJapanWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalJapanNavalYardSpam" State="SuperiorBrutalJapanNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="4AggroBrutalJapanBarracksSpam" State="4AggroBrutalJapanBarracksSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorInfiniteBrutalJapanWarfactorySpam" State="SuperiorInfiniteBrutalJapanWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorInfiniteBrutalJapanNavalYardSpam" State="SuperiorInfiniteBrutalJapanNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorInfiniteBrutalJapanDojoSpam" State="SuperiorInfiniteBrutalJapanDojoSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+		<StrategicState id="SuperiorJapanAceAttackGround" State="SuperiorJapanAceAttackGround" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="SuperiorJapanAceAttackWater" State="SuperiorJapanAceAttackWater" Difficulty="HARD BRUTAL"/>
+
+		<!-- Main Offensive States - MEDIUM -->
+		<StrategicState id="BalancedAttackGround_MEDIUM" State="BalancedAttackGround_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackWater_MEDIUM" State="BalancedAttackWater_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackOverwhelm_MEDIUM" State="BalancedAttackOverwhelm_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_EnhancedKamikaze" Weight="99999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_PointDefenseDrones" Weight="99999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_NavalPower" Weight="99999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_BalloonAttack_Rank1" Weight="999999999%"/>
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>

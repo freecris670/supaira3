@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+		<!--
+			mod.xml is the central include for mod setup data.		
+		-->
+		<!-- These includes need to be in all mod.xml files -->
+		<Include type="reference" source="DATA:static.xml" />
+		<Include type="reference" source="DATA:global.xml" />    
+		<Include type="reference" source="DATA:audio.xml" />
+		
+		<Include type="all" source="DATA:SkirmishAIIncludes.xml" />
+		<Include type="all" source="DATA:AIData.xml" />
+		<Include type="all" source="DATA:LogicCommand.xml" />
+		<!--
+		<Include type="all" source="DATA:Locomotor.xml" />
+		-->
+
+  		<!--XXXXXXXXXXXX STRUCTURE PLACEMENT XXXXXXXXXXX-->
+		<Include type="all" source="DATA:AIStructurePlacement/AlliedAirfield.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/AlliedWarFactory.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/AlliedNavalYard.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/JapanNavalYard.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/JapanWarFactory.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/JapanBarracks.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/SovietNavalYard.xml" />
+                <!-- DEFENSE STRUCTURES -->
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/AlliedBaseDefense.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/AlliedBaseDefenseAdvanced.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/JapanBaseDefense.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/JapanBaseDefenseAdvanced.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/SovietBaseDefenseAir.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/SovietBaseDefenseGround.xml" />
+		<Include type="all" source="DATA:AIStructurePlacement/DefensiveStructures/SovietBaseDefenseAdvanced.xml" />
+		<!--XXXXXXXXXX    UNIT   MICROMANAGEMENT   XXXXXXXXXXXXXX-->
+		<Include type="all" source="DATA:AIUnitMicro/JapanAntiInfantryInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanAntiAirVehicleTech1.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanAntiVehicleInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanAntiVehicleInfantryTech3.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanAntiInfantryVehicle.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanAntiAirShip.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanMiner.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanMCV.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanScoutInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/JapanCommandoTech1.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedAntiNavyShipTech1.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedAntiInfantryInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedCommandoTech1.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedAntiVehicleVehicleTech3.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedFighterAircraft.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedMCV.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedAntiInfantryVehicle.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/AlliedAntiAirShip.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietMiner.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiStructureVehicle.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiInfantryInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiVehicleInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietHeavyAntiVehicleInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietCommandoTech1.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiVehicleVehicleTech1.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiVehicleVehicleTech3.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiStructureShip.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietScoutVehicle.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietBomberAircraft.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietMCV.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietScoutInfantry.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiInfantryVehicle.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietFighterAircraft.xml" />
+		<Include type="all" source="DATA:AIUnitMicro/SovietAntiNavyShipTech2.xml" />
+
+	</Includes>
+
+</AssetDeclaration>
+

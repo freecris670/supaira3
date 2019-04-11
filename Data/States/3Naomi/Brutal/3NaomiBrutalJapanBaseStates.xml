@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="3NaomiBrutalJapanNavalYardSpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="3000" Above="true" />
+      <IntervalHeuristic IntervalTime="60s" ActiveTime="40s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="JapanNavalYardEgg" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorNAOMIInfiniteBrutalJapanNavalYardSpam">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="50000" Above="true" />
+      <IntervalHeuristic IntervalTime="18s" ActiveTime="95s" CountFrom="AI_START"/>
+      <CanBuildBuildingsOnSurfaceHeuristic
+	MinPlacementGridCells="14"
+        Surfaces="WATER">
+      </CanBuildBuildingsOnSurfaceHeuristic>
+    </Heuristic>
+    <BuildEntry Build="JapanNavalYardEgg" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

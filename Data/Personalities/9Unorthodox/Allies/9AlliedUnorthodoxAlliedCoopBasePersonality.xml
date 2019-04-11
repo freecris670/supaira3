@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+
+  <Includes>
+    <Include type="instance" source="9AlliedUnorthodoxCoopBasePersonality.xml" />
+  </Includes>
+
+  <AIPersonalityDefinition
+		id="9AlliedUnorthodoxAlliedCoopBasePersonality"
+    PersonalityType="9AlliedUnorthodoxAlliedCoopBasePersonality"
+    inheritFrom="9AlliedUnorthodoxCoopBasePersonality"
+    BaseCompactness="0.85"
+		>
+
+    <Side>Allies</Side>
+
+		<StrategicState id="AlliedExpansion"          State="AlliedExpansion"             Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="AlliedNavalBase"          State="AlliedNavalBase"             Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+		<StrategicState id="AlliedCaptureTech"        State="AlliedCaptureTech"           Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="AlliedCaptureWaterHusks"  State="AlliedCaptureWaterHusks"     Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="AlliedDefenseBuildState"      State="AlliedDefenseBuildState"     Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="AlliedNeededUnits"            State="AlliedNeededUnits"           Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+
+    <!-- Player Tech -->
+
+    <!-- Tier 1 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_AirPower" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_SatelliteSweep" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_HighTechnology" Weight="100%"/>
+
+    <!-- Tier 2 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_PrecisionStrike" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoRift_Rank1" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoSwap" Weight="200%"/>
+
+    <!-- Tier 3 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_TimeBomb_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoRift_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank1" Weight="300%"/>
+
+    <!-- Tier 4 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_TimeBomb_Rank2" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_ChronoRift_Rank3" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank2" Weight="400%"/>
+
+    <!-- Tier 5 -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_TimeBomb_Rank3" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Allies" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank3" Weight="500%"/>
+
+  </AIPersonalityDefinition>
+
+</AssetDeclaration>

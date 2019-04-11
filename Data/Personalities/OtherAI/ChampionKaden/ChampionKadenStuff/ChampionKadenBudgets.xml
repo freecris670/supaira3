@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBudgetStateDefinition
+    id="ChampionKadenCoopBudget">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <ConstantHeuristic Weight="0.5"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="85%"/>
+      <AccountShare Account="DEFENSE" Percent="5%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="10%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+
+  <AIBudgetStateDefinition
+    id="ChampionKadenEarlyGameDefenseBudget">
+    <Heuristic>
+      <TimerHeuristic StartTime="90s" EndTime="210s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="true" MinEnemyValue="1000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <!-- Need at least one structure that can build base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedConstructionYard</IncludeThing>
+          <IncludeThing>JapanConstructionYard</IncludeThing>
+          <IncludeThing>SovietConstructionYard</IncludeThing>
+          <IncludeThing>SovietCrane</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <!-- Need at least one structure that's pre-requsite to building base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedPowerPlant</IncludeThing>
+          <IncludeThing>SovietPowerPlant</IncludeThing>
+          <IncludeThing>JapanRefinery</IncludeThing>
+          <IncludeThing>AlliedTechStructure</IncludeThing>
+          <IncludeThing>SovietPowerPlantAdvanced</IncludeThing>
+          <IncludeThing>JapanTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <ConstantHeuristic Weight="0.75"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="75%"/>
+      <AccountShare Account="DEFENSE" Percent="25%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="0%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+  <AIBudgetStateDefinition
+    id="ChampionKadenNormalDefenseBudget">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="210s" EndTime="-1s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="true" MinEnemyValue="3000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <!-- Need at least one structure that can build base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedConstructionYard</IncludeThing>
+          <IncludeThing>JapanConstructionYard</IncludeThing>
+          <IncludeThing>SovietConstructionYard</IncludeThing>
+          <IncludeThing>SovietCrane</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <!-- Need at least one structure that's pre-requsite to building base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedPowerPlant</IncludeThing>
+          <IncludeThing>SovietPowerPlant</IncludeThing>
+          <IncludeThing>JapanRefinery</IncludeThing>
+          <IncludeThing>AlliedTechStructure</IncludeThing>
+          <IncludeThing>SovietPowerPlantAdvanced</IncludeThing>
+          <IncludeThing>JapanTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <ConstantHeuristic Weight="0.75"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="85%"/>
+      <AccountShare Account="DEFENSE" Percent="15%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="0%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+  <AIBudgetStateDefinition
+    id="ChampionKadenHeavyDefenseBudget">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="400.0" EnemyNearby="true" MinEnemyValue="4800">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <!-- Need at least one structure that can build base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedConstructionYard</IncludeThing>
+          <IncludeThing>JapanConstructionYard</IncludeThing>
+          <IncludeThing>SovietConstructionYard</IncludeThing>
+          <IncludeThing>SovietCrane</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <!-- Need at least one structure that's pre-requsite to building base defenses-->
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>AlliedPowerPlant</IncludeThing>
+          <IncludeThing>SovietPowerPlant</IncludeThing>
+          <IncludeThing>JapanRefinery</IncludeThing>
+          <IncludeThing>AlliedTechStructure</IncludeThing>
+          <IncludeThing>SovietPowerPlantAdvanced</IncludeThing>
+          <IncludeThing>JapanTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PowerAdvantageHeuristic Value="1.0" Above="false" IncludeOwnDefenses="true" IncludeEnemyDefenses="false"/>
+    </Heuristic>
+    <Budget>
+      <AccountShare Account="PRODUCTION" Percent="75%"/>
+      <AccountShare Account="DEFENSE" Percent="25%"/>
+      <AccountShare Account="SLUSH_FUND" Percent="0%"/>
+    </Budget>
+  </AIBudgetStateDefinition>
+
+</AssetDeclaration>

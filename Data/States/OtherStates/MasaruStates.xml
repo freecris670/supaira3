@@ -1,0 +1,715 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+
+
+  <AIBuildStateDefinition
+    id="MasaruTech">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="260s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="360s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="120s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech3" Heuristic="UPGRADE_TECH" MinTime="360s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="200s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="360s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="360s"/>
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="360s"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="NOBURSTDRONESJapanAmphibiousUnitBuildState">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    
+    <BuildEntry Build="JapanInfiltrationInfantry" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>AlliedScoutInfantry</IncludeThing>
+        <IncludeThing>SovietScoutInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+    <BuildEntry Build="JapanAntiVehicleInfantryTech3" Heuristic="BEST_UNIT_EXPECTED"/>
+    
+    <BuildEntry Build="JapanCommandoTech1" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>AlliedScoutInfantry</IncludeThing>
+        <IncludeThing>SovietScoutInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+
+    <BuildEntry Build="JapanAntiInfantryVehicle" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+    <BuildEntry Build="JapanAntiAirVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+    <BuildEntry Build="JapanAntiVehicleVehicleTech1" Heuristic="BEST_UNIT_EXPECTED">
+      <BlockIfThingNearFactory Rule="ANY" Relationship="ENEMIES">
+        <IncludeThing>SovietHeavyAntiVehicleInfantry</IncludeThing>
+      </BlockIfThingNearFactory>
+    </BuildEntry>
+    
+    <BuildEntry Build="JapanAntiVehicleVehicleTech1_Naval" Heuristic="BEST_UNIT_EXPECTED"/>
+
+    <BuildEntry Build="JapanAntiAirShip" Heuristic="BEST_UNIT_EXPECTED"/>
+    <!-- No, the JapanAntiStructureShip is not amphibious but its ok to build even if our enemy has no water units or structures-->
+    <BuildEntry Build="JapanAntiStructureShip" Heuristic="BEST_UNIT_WEIGHTED"/>
+
+    <BuildEntry Build="JapanMiner" Heuristic="HARVESTER"/>
+    
+  </AIBuildStateDefinition>
+
+<!--           NNNNNNNNNNN            -->
+<!--     NNNNNNNNNNNNNNNNNNNNNNNN     -->
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- NNNNNNN STRATEGIC STATES NNNNNNN -->
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!--     NNNNNNNNNNNNNNNNNNNNNNNN     -->
+<!--           NNNNNNNNNNN            -->
+
+  <AIStrategicStateDefinition
+      id="MasaruCapturePriorityTech"
+      MaxTargets="1">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiInfantryInfantry</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="600.0" EnemyNearby="false"/>
+      <TechBuildingShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestSafestMoneyTechHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="ClosestSafestVeterancyTechHeuristic" Priority="10"/>
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="4" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    MicroManager="CaptureAnythingMicroManager">
+        <CreateUnits UnitName="JapanEngineer" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruTenguManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiInfantryVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_AIRCRAFT" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL_EVERYWHERE" Priority="29"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="1"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="5" MaxUnits="12"
+                    RegisteredObjectSet="VEHICLES"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruTenguMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiInfantryVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruShogunManager"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="1"/>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL_INWATER" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL_INWATER" Priority="99"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="3" MaxUnits="6"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruFearlessShogunMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="YurikoGuards"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanCommandoTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="GuardYurikoHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="300" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="4" MaxUnits="6"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="HIGH"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="YurikoServantsMicroManager" >
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ShogunGuards"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="GuardShogunsHeuristic" Priority="90"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="250" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="4" MaxUnits="6"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS"
+                    Priority="HIGH"  ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="YurikoServantsMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiAirShip</IncludeThing>
+          <IncludeThing>JapanNavyScoutShip</IncludeThing>
+          <IncludeThing>JapanAntiVehicleShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruSeawingManager_FreeUse"
+    MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PowerAdvantageHeuristic Value="1.5" Above="true" IncludeEnemyDefenses="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSVXTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSAnyAirTargetHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorAttackLightVehiclesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillInfantryHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTICommandoHeuristic" Priority="40"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="1" MaxUnits="3"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="MasaruSeaWingFreeMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruSeawingManager_AntiAirLock"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+				PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PowerAdvantageHeuristic Value="1.0" Above="false" IncludeEnemyDefenses="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorANTIharvHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSKirovCenturyTargetHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSTenguTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSVXTargetHeuristic" Priority="65"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSFighterTargetHeuristic" Priority="50"/>
+    <TargetHeuristic TargetHeuristic="SuperiorFighterVSAnyAirTargetHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorAttackLightVehiclesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorKillInfantryHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorANTICommandoHeuristic" Priority="40"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="3" MaxUnits="3"
+                    RegisteredObjectSet="AIRCRAFT"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AIR"
+                    Priority="STANDARD" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruSeaWingMicroManager" >
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+	<AIStrategicStateDefinition
+    id="MasaruHarvesterController"
+		MaxRunningCopies="1">
+		<Heuristic>
+			<ConstantHeuristic/>
+		</Heuristic>
+		<Tactic id="Null" Tactic="NullTactic" Targetless="true">
+			<TeamTemplate MinUnits="1"
+                    RegisteredObjectSet="HARVESTERS"
+                    IncludeKindOf="HARVESTER" ExcludeKindOf=""
+                    AlwaysRecruit="true"
+										Priority="LOW" ReleaseType="RELEASE_TO_PRIORITY" SortByDistance="false"
+                    MicroManager="MasaruHarvesterMicroManager"/>
+		</Tactic>
+	</AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruLandDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyLandStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="450" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruLandEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByLandEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruWaterDefense"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyWaterStructureHeuristic"/>
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="450" EndBehavior="DISBAND">
+      <TeamTemplate MinUnits="1" MaxUnits="14"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="DEFENSE" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruDefenseMicroManager">
+        <ObjectFilter Rule="ALL"> <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruWaterEmergencyDefense"
+    MaxTargets="2">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/> <!-- Pulse the state off so the target heuristic can update the target if neccesary -->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="UnderAttackByWaterEnemyHeuristic"/>
+    <Tactic id="Defense" Tactic="SimpleAttack" EndBehavior="DISBAND" EndIfStateTurnsOff="true" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    RequireCanAttackTarget="true"
+                    Priority="DEFENSE_HIGH" AlwaysRecruit="true" SortByDistance="true"
+                    MicroManager="MasaruDefenseMicroManager">
+        <ObjectFilter Rule="ALL">
+          <!-- Exclude all ammo based aircraft -->
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="WaveForceHandler"
+    MaxTargets="99">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="2" MaxUnits="3"
+                    RegisteredObjectSet="VEHICLES"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="WaveForceArtilleryMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiStructureVehicle</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruExpand_HARD"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="220s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="85s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false" MinEnemyValue="2000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  
+  <AIStrategicStateDefinition
+    id="MasaruExpand_BRUTAL"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanRefineryEgg</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PowerAdvantageHeuristic Value="1.0" Above="true" IncludeEnemyDefenses="false"/>
+      <TimerHeuristic StartTime="200s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="60s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false" MinEnemyValue="2000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruExpand_BRUTAL_MOREPRESSURE"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanRefineryEgg</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PowerAdvantageHeuristic Value="1.0" Above="false" IncludeEnemyDefenses="false"/>
+      <TimerHeuristic StartTime="260s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="70s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="900.0" EnemyNearby="false" MinEnemyValue="2000"/>
+      <AllNearbyNodesFullHeuristic/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruGroundAttack"
+    MaxTargets="5">
+    <Heuristic>
+      <ConstantHeuristic/>
+      <TimerHeuristic StartTime="330s" EndTime="-1s" CountFrom="AI_START"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="17" MaxUnits="35"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="MasaruStandardMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanLightTransportVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruGroundAttackViolentEarly"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+      <TimerHeuristic StartTime="1s" EndTime="300s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY"
+					Include="VEHICLE CAN_ATTACK">
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="KILL_THEM_ALL" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="DESTROY_THEM_ALL" Priority="10"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" DisbandAfterRetreatTeamSize="999" EndBehavior="RAMPAGE">
+      <TeamTemplate MinUnits="7" MaxUnits="20"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="MasaruStandardMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanLightTransportVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="MasaruWaterAttack"
+    MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="50"/>
+    <Tactic id="Attack" Tactic="FlankAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="10"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="true" SortByDistance="false"
+                    MicroManager="MasaruStandardNavyMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="TsunamiWaterAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiVehicleVehicleTech1</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="false"
+        Location="Water">
+        <ObjectFilter
+					Relationship="ENEMIES"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiStructureShip</IncludeThing>
+          <IncludeThing>SovietAntiNavyShipTech2</IncludeThing>
+          <IncludeThing>SovietAntiStructureShip</IncludeThing>
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="WaterHarvester" Priority="70"/>
+    <TargetHeuristic TargetHeuristic="WaterRefineries" Priority="30"/>
+    <Tactic id="Attack" Tactic="FlankAttack" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="3" MaxUnits="6" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="VEHICLES"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="TsunamiAttackMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiVehicleVehicleTech1</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+    <AIStrategicStateDefinition
+    id="MasaruScout"
+    MaxTargets="1"
+		CannotAttackTargetReaction="Ignore">
+    <Heuristic>
+      <TimerHeuristic StartTime="0s" EndTime="30s"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToSurfaceHarvesterHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="SafestStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="LOW" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="BurstDroneHarassmentMicroManager">
+        <CreateUnits UnitName="JapanScoutInfantry" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

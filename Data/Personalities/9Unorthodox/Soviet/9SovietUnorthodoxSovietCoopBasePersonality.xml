@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+
+  <Includes>
+    <Include type="instance" source="9SovietUnorthodoxCoopBasePersonality.xml" />
+  </Includes>
+
+  <AIPersonalityDefinition
+		id="9SovietUnorthodoxSovietCoopBasePersonality"
+    PersonalityType="9SovietUnorthodoxSovietCoopBasePersonality"
+    inheritFrom="9SovietUnorthodoxCoopBasePersonality"
+		>
+
+    <Side>Soviet</Side>
+
+		<StrategicState id="SovietExpansion"         State="SovietExpansion"            Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="SovietNavalBase"         State="SovietNavalBase"            Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+		<StrategicState id="SovietCaptureTech"       State="SovietCaptureTech"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="SovietCaptureWaterHusks" State="SovietCaptureWaterHusks"    Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="SovietDefenseBuildState"     State="SovietDefenseBuildState"    Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="SovietNeededUnits"           State="SovietNeededUnits"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+
+    <SpecificUnitCap Unit="SovietSurveyor" Cap="1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Player Tech -->
+    
+    <!-- Tier 1 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_TerrorDroneEggs" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_ProductionKickbacks" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_CrushPuppies" Weight="100%"/>
+
+    <!-- Tier 2 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_IrradiateTarget" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank1" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_1" Weight="200%"/>
+
+    <!-- Tier 3 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_2" Weight="300%"/>
+
+    <!-- Tier 4 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank2" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank3" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_3" Weight="400%"/>
+
+    <!-- Tier 5 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank3" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Soviet" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSingularity" Weight="500%"/>
+    
+
+  </AIPersonalityDefinition>
+
+</AssetDeclaration>

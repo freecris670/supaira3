@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <!-- SovietPowerPlant = 10  seconds -->
+  <!-- SovietBarracks   = 10  seconds -->
+  <!-- SovietRefinery   = 20 seconds -->
+  <!-- SovietWarFactory = 20 seconds -->
+  <!-- SovietPowerPlantAdvanced = 30 seconds -->
+  <!-- SovietAirfield   = 30 seconds -->
+  <!-- SovietTechStructure = 40 seconds -->
+  <!-- SovietNavalYard = 20 seconds -->
+
+  <SkirmishOpeningMove
+    id="AggroSovietStandard1"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1300" />
+    <Order Build="SovietBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="1300" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="100s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroBrutalSovietStandard1"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2300" />
+    <Order Build="SovietBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="2300" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="100s" Account="PRODUCTION" Deposit="1400" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="130s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroSovietStandard2"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1300" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroBrutalSovietStandard2"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1300" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="140s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroSovietIsland"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietNavalYard" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="2700" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="110s" />
+  </SkirmishOpeningMove>
+
+</AssetDeclaration>

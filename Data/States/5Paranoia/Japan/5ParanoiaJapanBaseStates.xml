@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="ParanoiaSuperSuddenDrop"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiInfantryInfantry</IncludeThing>
+          <IncludeThing>JapanAntiVehicleInfantry</IncludeThing>
+          <IncludeThing>JapanCommandoTech1</IncludeThing>
+          <IncludeThing>JapanEngineer</IncludeThing>
+          <IncludeThing>JapanInfiltrationInfantry</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropConYardHeuristic" Priority="900"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropTechKillHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropSuperReactorHeuristic" Priority="90"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="4" MaxUnits="5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorDropMicroManager">
+        <CreateUnits UnitName="JapanLightTransportVehicle" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ParanoiaYurikoDrop"
+    MaxTargets="1">
+    <Heuristic>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropConYardHeuristic" Priority="900"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropTechKillHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropSuperReactorHeuristic" Priority="90"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="2" MaxUnits="2" MinPowerAdvantage="0.75"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="COMMANDO" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorYurikoDropMicroManager">
+        <CreateUnits UnitName="JapanLightTransportVehicle" MinUnits="1" MaxUnits="1"/>
+        <CreateUnits UnitName="JapanCommandoTech1" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ParanoiaShinobiDrop"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanInfiltrationInfantry</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropConYardHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropTechKillHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropSuperReactorHeuristic" Priority="90"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="2" MaxUnits="2"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="INFILTRATOR" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="HIGH" AlwaysRecruit="false" SortByDistance="true"
+                    MicroManager="SuperiorDropMicroManager">
+        <CreateUnits UnitName="JapanLightTransportVehicle" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="ParanoiaJapanEngiDrop"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SnacksForCenturyBombersSuperWepsHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropConYardHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropTechKillHeuristic" Priority="90"/>
+    <TargetHeuristic TargetHeuristic="SuperiorTanyaDropSuperReactorHeuristic" Priority="90"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="2" MaxUnits="2"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="ENGINEER" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorEngiDropMicroManager">
+        <CreateUnits UnitName="JapanLightTransportVehicle" MinUnits="1" MaxUnits="1"/>
+        <CreateUnits UnitName="JapanEngineer" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="5ParanoiaJapanTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false"  MinEnemyValue="6000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="200s"/>
+
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="280s"/>
+
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="250s"/>
+  </AIBuildStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorJapanParanoiaAttackGround"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorEnemyMCVHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack1Heuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack2Heuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack3Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="ParanoiaMainAttack1Heuristic" Priority="999"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack6Heuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="28" MaxUnits="35" MinPowerAdvantage="5.5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorParanoiaMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorJapanParanoiaAttackWater"
+    MaxTargets="1">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterHarvesterHeuristic" Priority="10"/>
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="10"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="20" MinPowerAdvantage="5.5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="WATER AMPHIBIOUS AIR"
+                    Priority="HIGH" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorJapanNavyMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+</AssetDeclaration>

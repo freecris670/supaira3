@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+
+  <Includes>
+    <Include type="instance" source="TaylorAlliedCoopBasePersonality.xml" />
+  </Includes>
+
+  <AIPersonalityDefinition
+		id="TaylorAlliedCoopBaseSkirmishPersonality"
+    PersonalityType="TaylorAlliedCoopBaseSkirmishPersonality"
+    inheritFrom="TaylorAlliedCoopBasePersonality"
+		EmergencyManagerHandleConyardInDangerAtDifficulty="MEDIUM HARD BRUTAL"
+		>
+
+    <!-- Defense States -->
+    <StrategicState id="SuperiorLandDefense" State="LandDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorLandEmergencyDefense" State="LandEmergencyDefense" Difficulty="HARD BRUTAL"/>
+
+    <StrategicState id="SuperiorWaterDefense" State="WaterDefense" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorWaterEmergencyDefense" State="WaterEmergencyDefense" Difficulty="HARD BRUTAL"/>
+
+
+    <StrategicState id="LandDefense_MEDIUM" State="LandDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="WaterDefense_MEDIUM" State="WaterDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="LandDefense_EASY" State="LandDefense_EASY" Difficulty="EASY"/>
+    <StrategicState id="WaterDefense_EASY" State="WaterDefense_EASY" Difficulty="EASY"/>
+
+    <StrategicState id="LandEmergencyDefense_MEDIUM" State="LandEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="WaterEmergencyDefense_MEDIUM" State="WaterEmergencyDefense_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="LandEmergencyDefense_EASY" State="LandEmergencyDefense_EASY" Difficulty="EASY"/>
+    <StrategicState id="WaterEmergencyDefense_EASY" State="WaterEmergencyDefense_EASY" Difficulty="EASY"/>
+
+    <!-- General Skirmish States -->
+
+    <StrategicState id="Cleanup" State="Cleanup" Difficulty="EASY MEDIUM HARD"/>
+    <StrategicState id="Cleanup_BRUTAL" State="Cleanup_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="RetreatMCVToLand" State="RetreatMCVToLand" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="RetreatMCVToWater" State="RetreatMCVToWater" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="EscortMCV" State="EscortMCV" Difficulty="MEDIUM"/>
+
+    <StrategicState id="BombardmentShipAttack" State="BombardmentShipAttack" Difficulty="EASY MEDIUM"/>
+    <StrategicState id="TanyaController" State="TanyaController" Difficulty="MEDIUM"/>
+
+    <StrategicState id="AlliedStealthDetector" State="AlliedStealthDetector" Difficulty="MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="SuperiorCratePickup" State="SuperiorCratePickup" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Aircraft Offensive States -->
+    
+
+    <StrategicState id="FighterAircraft_MEDIUM" State="FighterAircraft_MEDIUM" Difficulty="EASY MEDIUM"/>
+
+    <StrategicState id="VindicatorDefense" State="VindicatorDefense" Difficulty="EASY MEDIUM"/>
+
+
+    <StrategicState id="VindicatorAttack_MEDIUM" State="VindicatorAttack_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="VindicatorAttack_EASY" State="VindicatorAttack_EASY" Difficulty="EASY"/>
+
+    <StrategicState id="CenturyBomberAttack" State="CenturyBomberAttack" Difficulty="EASY MEDIUM"/>
+
+    <!-- Island States -->
+    <StrategicState id="AlliedTransportAttack" State="AlliedTransportAttack" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Removed Strategic States-->
+    <StrategicState id="AlliedNavalBase" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="AlliedExpansion" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+    <StrategicState id="AlliedCaptureTech" xai:joinAction="Remove" xmlns:xai="uri:ea.com:eala:asset:instance"/>
+
+    <StrategicState id="AlliedExpansion_MEDIUM" State="AlliedExpansion_MEDIUM" Difficulty="MEDIUM"/>
+
+    <StrategicState id="AlliedCaptureTech_EASY" State="AlliedCaptureTech_EASY" Difficulty="EASY"/>
+    <StrategicState id="AlliedCaptureTech_MEDIUM" State="AlliedCaptureTech_MEDIUM" Difficulty="MEDIUM"/>
+
+    <StrategicState id="AlliedCaptureNonPriorityTech_HARD" State="AlliedCaptureNonPriorityTech_HARD" Difficulty="HARD"/>
+    <StrategicState id="AlliedCaptureNonPriorityTech_BRUTAL" State="AlliedCaptureNonPriorityTech_BRUTAL" Difficulty="BRUTAL"/>
+
+    <StrategicState id="AlliedCaptureVehicleHealTech" State="AlliedCaptureVehicleHealTech" Difficulty="HARD BRUTAL"/>
+
+    <!-- Superior States -->
+
+    <StrategicState id="SuperiorCapturePriorityTech" State="SuperiorCapturePriorityTech" Difficulty="HARD"/>
+
+    <StrategicState id="SuperiorEngineerEscorts" State="SuperiorEngineerEscorts" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorIFVManager" State="SuperiorIFVManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorComplexityInfantryDrop" State="SuperiorComplexityInfantryDrop" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorCryoManager" State="SuperiorCryoManager" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="SuperiorAlliedRepairBridges" State="SuperiorAlliedRepairBridges" Difficulty="MEDIUM HARD BRUTAL"/>
+    <StrategicState id="SuperiorAssaultDestroyerManager" State="SuperiorAssaultDestroyerManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorHydrofoilManager" State="SuperiorHydrofoilManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorRiptideWaterAttack" State="SuperiorRiptideWaterAttack" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorCarrierGuards" State="SuperiorCarrierGuards" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorCarrierManager" State="SuperiorCarrierManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorAthenaCannonManager" State="SuperiorAthenaCannonManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorApolloManager" State="SuperiorApolloManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorTanyaController" State="SuperiorTanyaController" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorAlliedSpy" State="SuperiorAlliedSpy" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorAlliedScout" State="SuperiorAlliedScout" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorTanyaDrop" State="SuperiorTanyaDrop" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorCenturyBomberMANAGER" State="SuperiorCenturyBomberMANAGER" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorVindicatorAttack" State="SuperiorVindicatorAttack" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorVindicatorDefense" State="SuperiorVindicatorDefense" Difficulty="HARD BRUTAL"/>
+    <BuildState id="SuperiorAlliedAntiAirOnlyBuildState" State="SuperiorAlliedAntiAirOnlyBuildState" Difficulty="HARD BRUTAL"/>
+    <BuildState id="SuperiorAlliedAntiGroundAircraftBuildState" State="SuperiorAlliedAntiGroundAircraftBuildState" Difficulty="HARD BRUTAL"/>
+    <BuildState id="SuperiorAlliedAirfieldBuildState" State="SuperiorAlliedAirfieldBuildState" Difficulty="HARD BRUTAL"/>
+
+    <StrategicState id="SuperiorBrutalCapturePriorityTech" State="SuperiorBrutalCapturePriorityTech" Difficulty="BRUTAL"/>
+
+    <!-- Build States -->
+    <BuildState id="AlliedNonPathDependentStructureBuildState" State="AlliedNonPathDependentStructureBuildState" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <BuildState id="AlliedTechBuildState" State="AlliedTechBuildState" Difficulty="MEDIUM"/>
+    <BuildState id="AlliedTechBuildState_EASY" State="AlliedTechBuildState_EASY" Difficulty="EASY"/>
+
+    <BuildState id="AlliedLandUnitBuildState" State="AlliedLandUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="AlliedWaterUnitBuildState" State="AlliedWaterUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="AlliedAmphibiousUnitBuildState" State="AlliedAmphibiousUnitBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="AlliedAntiInfantryOnlyBuildState" State="AlliedAntiInfantryOnlyBuildState" Difficulty="MEDIUM HARD BRUTAL"/>
+    <BuildState id="AlliedAntiAirOnlyBuildState" State="AlliedAntiAirOnlyBuildState" Difficulty="MEDIUM"/>
+    <BuildState id="AlliedAntiGroundAircraftBuildState" State="AlliedAntiGroundAircraftBuildState" Difficulty="MEDIUM"/>
+
+
+    <!--
+    <BuildState id="AlliedBarracksBuildState_FEWEST" State="AlliedBarracksBuildState_FEWEST" Difficulty="MEDIUM"/>
+    <BuildState id="AlliedWarFactoryBuildState_FEWEST" State="AlliedWarFactoryBuildState_FEWEST" Difficulty="MEDIUM"/>
+    <BuildState id="AlliedNavalYardBuildState_FEWEST" State="AlliedNavalYardBuildState_FEWEST" Difficulty="MEDIUM"/>
+    <BuildState id="AlliedAirfieldBuildState_FEWEST" State="AlliedAirfieldBuildState_FEWEST" Difficulty="MEDIUM"/>
+    -->
+
+    <BuildState id="AlliedBarracksBuildState_RANDOM" State="AlliedBarracksBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="AlliedWarFactoryBuildState_RANDOM" State="AlliedWarFactoryBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="AlliedNavalYardBuildState_RANDOM" State="AlliedNavalYardBuildState_RANDOM" Difficulty="EASY"/>
+    <BuildState id="AlliedAirfieldBuildState_RANDOM" State="AlliedAirfieldBuildState_RANDOM" Difficulty="EASY"/>
+    
+    <!-- Caps for difficulty -->
+    <SpecificUnitCap Unit="AlliedFighterAircraft" Cap="0" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="AlliedAntiGroundAircraft" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="AlliedSupportAircraft" Cap="2" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="AlliedBomberAircraft" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="AlliedAntiStructureShip" Cap="1" Difficulty="EASY"/>
+    <SpecificUnitCap Unit="AlliedCommandoTech1" Cap="0" Difficulty="EASY"/>
+
+    <SpecificUnitCap Unit="AlliedFighterAircraft" Cap="2" Difficulty="MEDIUM"/>
+
+    <!-- At a certain point, we don't need any more of these because they are very limited in use. -->
+    <SpecificUnitCap Unit="AlliedScoutInfantry" Cap="6" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedEngineer" Cap="2" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- At a certain point, we just don't need any more of these since they can't actually do damage -->
+    <SpecificUnitCap Unit="AlliedSupportAircraft" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- We need caps for all land-only and water-only units to protect against situations where those units can no longer path to the enemy.
+         We try to protect against that as much as possible but this is the safety-net.  At a certain point, the AI should just spam amphibious
+         or air units which are always a safe bet. -->
+    <SpecificUnitCap Unit="AlliedAntiInfantryInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedAntiVehicleInfantry" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="AlliedAntiVehicleVehicleTech1" Cap="10" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedAntiAirVehicleTech1" Cap="30" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedAntiVehicleVehicleTech3" Cap="30" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedAntiStructureVehicle" Cap="30" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <SpecificUnitCap Unit="AlliedAntiNavalScout" Cap="8" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedAntiAirShip" Cap="12" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <SpecificUnitCap Unit="AlliedAntiStructureShip" Cap="20" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+  </AIPersonalityDefinition>
+
+</AssetDeclaration>

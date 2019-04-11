@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="3LissetteBrutalAlliedTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="AlliedAirfield" Heuristic="TECH" MinTime="170s"/>
+    <BuildEntry Build="AlliedTechStructure" Heuristic="TECH" MinTime="320s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech2" Heuristic="UPGRADE_TECH" MinTime="170s"/>
+    <BuildEntry Upgrade="Upgrade_AlliedTech3" Heuristic="UPGRADE_TECH" MinTime="240s"/>
+    <BuildEntry Build="AlliedSuperWeapon" Heuristic="TECH" MinTime="360s"/>
+    <BuildEntry Build="AlliedSuperWeaponAdvanced" Heuristic="TECH" MinTime="360s"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

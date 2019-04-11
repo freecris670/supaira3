@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <!-- JapanPowerPlantEgg = 5 seconds -->
+  <!-- JapanRefineryEgg   = 5 seconds -->
+  <!-- JapanBarracksEgg   = 5 seconds -->
+  <!-- JapanWarFactoryEgg = 5 seconds -->
+  <!-- JapanNavalYardEgg  = 5 seconds -->
+
+
+
+  <SkirmishOpeningMove
+    id="SuperiorJapanStandard"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="JapanWarFactoryEgg" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2300" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="80s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorBrutalJapanStandard1"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="1900" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanWarFactoryEgg" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Time="80s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="110s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorBrutalJapanStandard2"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="1900" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanWarFactoryEgg" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Time="80s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Build="JapanWarFactoryEgg" />
+    <Order Time="110s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorBrutalShinzoStandard"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="2900" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanWarFactoryEgg" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Time="80s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Time="100s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorShinzoIslandOpening"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="2400" />
+    <Order Time="80s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SuperiorBrutalShinzoIslandOpening"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="4200" />
+    <Order Time="80s" />
+  </SkirmishOpeningMove>
+
+</AssetDeclaration>

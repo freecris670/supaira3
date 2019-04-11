@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorJapanComplexityTripleRocketAngelAttack"
+    MaxTargets="2">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="450s" EndTime="-1s"/>
+      <IntervalHeuristic IntervalTime="1s" ActiveTime="15s"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="4000"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToSurfaceHarvesterHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SafestToSurfaceSurveyorHeuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="SafestToAirPowerPlantHeuristic" Priority="20"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="3" MaxUnits="3"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" AlwaysRecruit="false" ReleaseType="NEVER_RELEASE" SortByDistance="false"
+                    MicroManager="SuperiorComplexity3rocketangelMicroManager">
+        <CreateUnits UnitName="JapanAntiVehicleInfantryTech3" MinUnits="3" MaxUnits="3"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+      id="SuperiorJapanComplexityEngineerTransport"
+      MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <IntervalHeuristic IntervalTime="25s" ActiveTime="30s"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ALL" >
+          <IncludeThing>JapanWarfactory</IncludeThing>
+          <IncludeThing>JapanBarracks</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000"/>
+      <TechBuildingShareHeuristic PercentOfFairShare="125%" Above="false"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestSafestMoneyTechHeuristic" Priority="20"/>
+    <TargetHeuristic TargetHeuristic="ClosestSafestVeterancyTechHeuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="ClosestSafestTechBuildingHeuristic" Priority="10"/>
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="2" MaxUnits="2" MinPowerAdvantage="0.5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    MicroManager="FearlessCaptureAnythingMicroManager">
+        <CreateUnits UnitName="JapanLightTransportVehicle" MinUnits="1" MaxUnits="1"/>
+        <CreateUnits UnitName="JapanEngineer" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorJapanComplexityInfantryDrop"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <IntervalHeuristic IntervalTime="87s" ActiveTime="30s"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true">
+        <ObjectFilter
+					Relationship="SAME_PLAYER"
+					Rule="ANY" >
+          <IncludeThing>JapanAntiVehicleInfantry</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorVulnerableRefineryHeuristic"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="4" MaxUnits="6" MinPowerAdvantage="0.5"
+                    RegisteredObjectSet="INFANTRY"
+                    IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS"
+                    Priority="STANDARD" AlwaysRecruit="false" ReleaseType="NEVER_RELEASE" SortByDistance="true"
+                    MicroManager="SuperiorENGAGEPASSIVEDropMicroManager">
+        <CreateUnits UnitName="JapanLightTransportVehicle" MinUnits="1" MaxUnits="1"/>
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>JapanAntiVehicleInfantry</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorComplexityJapanExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimerHeuristic StartTime="120s" EndTime="-1s"/>
+      <TimeSinceLastExpansionHeuristic Time="180s"/>
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY FS_FACTORY SUPER_WEAPON" PassIfBuilding="false"/>
+      <EnemyNearbyHeuristic Distance="1100.0" EnemyNearby="false" MinEnemyValue="4000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+      <ResourceNodeShareHeuristic PercentOfFairShare="100%" Above="false"/>
+      <OpenNodeHeuristic Exists="true" MinDistanceFromEnemy="400.0"/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="RefineryPlacementHeuristic"/>
+    <Tactic id="Expand" Tactic="ExactExpansion">
+      <TeamTemplate MinUnits="1" MaxUnits="1"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="JapanRefineryEgg" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorJapanComplexityTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1300.0" EnemyNearby="false"  MinEnemyValue="4000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="200s"/>
+
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="420s"/>
+
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="230s"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorJapanComplexityIslandJapanTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1300.0" EnemyNearby="false"  MinEnemyValue="4000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="false" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="230s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="200s"/>
+
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="420s"/>
+
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="230s"/>
+  </AIBuildStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorJapanComplexityAttackGround"
+    MaxTargets="6">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorEnemyMCVHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack1Heuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack2Heuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack3Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack5Heuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack6Heuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="SimpleAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="7" MaxUnits="7"  MinPowerAdvantage="1.5"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorJapanComplexityMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+          <ExcludeThing>JapanAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+
+</AssetDeclaration>

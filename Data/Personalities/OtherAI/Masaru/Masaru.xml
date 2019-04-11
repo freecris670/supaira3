@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="MasaruJapanCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Masaru"
+		PersonalityType="Masaru"
+		inheritFrom="MasaruJapanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Masaru"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="JapanStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="JapanIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JapanStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JapanIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="J_DualRaxStart_Mecha" Weight="100%" Difficulty="HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JB_DualRax_Mecha" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JB_Island_Naval" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <!-- Easy to swap STATES -->
+
+    <!-- ATTACK STATES -->
+		<StrategicState id="MasaruGroundAttackViolentEarly" State="MasaruGroundAttackViolentEarly" Difficulty="HARD BRUTAL"/>
+
+		<StrategicState id="MasaruGroundAttack" State="MasaruGroundAttack" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="MasaruWaterAttack" State="MasaruWaterAttack" Difficulty="HARD BRUTAL"/>
+    <!-- DEFENSE STATES -->
+		<StrategicState id="MasaruLandDefense" State="MasaruLandDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="MasaruLandEmergencyDefense" State="MasaruLandEmergencyDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="MasaruWaterDefense" State="MasaruWaterDefense" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="MasaruWaterEmergencyDefense" State="MasaruWaterEmergencyDefense" Difficulty="HARD BRUTAL"/>
+    <!-- TECH STATES -->
+    <BuildState id="MasaruTech" State="MasaruTech" Difficulty="HARD BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="MasaruExpand_HARD" State="MasaruExpand_HARD" Difficulty="HARD"/>
+
+    <StrategicState id="MasaruExpand_BRUTAL" State="MasaruExpand_BRUTAL" Difficulty="BRUTAL"/>
+    <StrategicState id="MasaruExpand_BRUTAL_MOREPRESSURE" State="MasaruExpand_BRUTAL_MOREPRESSURE" Difficulty="BRUTAL"/>
+
+    <!-- Masaru Strategic States -->
+    <StrategicState id="MasaruScout" State="MasaruScout" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="TsunamiWaterAttack" State="TsunamiWaterAttack" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="WaveForceHandler" State="WaveForceHandler" Difficulty="HARD BRUTAL"/>
+
+    <StrategicState id="ShogunGuards" State="ShogunGuards" Difficulty="HARD BRUTAL"/>
+
+<!--
+    <StrategicState id="MasaruSeawingManager_FreeUse" State="MasaruSeawingManager_FreeUse" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="YurikoGuards" State="YurikoGuards" Difficulty="HARD BRUTAL"/>
+-->
+    <StrategicState id="MasaruSeawingManager_AntiAirLock" State="MasaruSeawingManager_AntiAirLock" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="MasaruShogunManager" State="MasaruShogunManager" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="MasaruTenguManager" State="MasaruTenguManager" Difficulty="HARD BRUTAL"/>
+
+
+    <StrategicState id="MasaruCapturePriorityTech" State="MasaruCapturePriorityTech" Difficulty="HARD BRUTAL"/>
+
+        <!-- Masaru Build States -->
+
+		<!-- Main Offensive States - MEDIUM -->
+		<StrategicState id="BalancedAttackGround_MEDIUM" State="BalancedAttackGround_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackWater_MEDIUM" State="BalancedAttackWater_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackOverwhelm_MEDIUM" State="BalancedAttackOverwhelm_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_EnhancedKamikaze" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_PointDefenseDrones" Weight="999999%"/>
+
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>

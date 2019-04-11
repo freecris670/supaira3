@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="ToumaJapanCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Touma"
+		PersonalityType="Touma"
+		inheritFrom="ToumaJapanCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Touma"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="JapanStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="JapanIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JapanStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JapanIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="J_DualRaxStart_Mecha" Weight="100%" Difficulty="HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JB_DualRax_Mecha" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="JB_Island_Naval" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+    <!-- Easy to swap STATES -->
+
+    <!-- ATTACK STATES -->
+		<StrategicState id="Avoid_10to24_SpecialForcesMicro" State="Avoid_10to24_SpecialForcesMicro" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="Water_SimpleAttack_5to30_FleetCommandMicro" State="Water_SimpleAttack_5to30_FleetCommandMicro" Difficulty="HARD BRUTAL"/>
+
+    <!-- TECH STATES -->
+    <BuildState id="FastTech2SlowTech3JapanTechBuildState" State="FastTech2SlowTech3JapanTechBuildState" Difficulty="HARD"/>
+    <BuildState id="FastTech2SlowTech3BrutalJapanTechBuildState" State="FastTech2SlowTech3BrutalJapanTechBuildState" Difficulty="BRUTAL"/>
+    <BuildState id="FastTech2SlowTech3BrutalIslandJapanTechBuildState" State="FastTech2SlowTech3BrutalIslandJapanTechBuildState" Difficulty="BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="SlowJapanExpansion" State="SlowJapanExpansion" Difficulty="HARD BRUTAL"/>
+
+        <!-- BRUTAL BUILD STATES -->
+    <BuildState id="4AggroBrutalJapanBarracksSpam" State="4AggroBrutalJapanBarracksSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorInfiniteBrutalJapanWarfactorySpam" State="SuperiorInfiniteBrutalJapanWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorInfiniteBrutalJapanNavalYardSpam" State="SuperiorInfiniteBrutalJapanNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorInfiniteBrutalJapanDojoSpam" State="SuperiorInfiniteBrutalJapanDojoSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+    <!-- TEAM WORK STATES -->
+<!--
+    <StrategicState id="SuperiorDefendAllyAircraft" State="SuperiorDefendAllyAircraft" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorJapanDefendAllyOnLand" State="SuperiorJapanDefendAllyOnLand" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorJapanDefendAllyOnWater" State="SuperiorJapanDefendAllyOnWater" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorJapanSupportAllyAttack" State="SuperiorJapanSupportAllyAttack" Difficulty="HARD BRUTAL"/>
+-->
+
+    <!-- SPECIAL STATES -->
+
+		<!-- Main Offensive States - MEDIUM -->
+		<StrategicState id="BalancedAttackGround_MEDIUM" State="BalancedAttackGround_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackWater_MEDIUM" State="BalancedAttackWater_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackOverwhelm_MEDIUM" State="BalancedAttackOverwhelm_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+    <UnitModifier Unit="JapanInfiltrationInfantry" OffensiveModifier="99.5" DefensiveModifier="99.2"/>
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Japan_EnhancedKamikaze" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Japan_PointDefenseDrones" Weight="999999%"/>
+
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<Tags></Tags>
+	<Includes>
+     
+    <!-- Skirmish Opening Moves -->
+
+    <Include type="all" source="AlliedOpeningMoves.xml"/>
+    <Include type="all" source="SovietOpeningMoves.xml"/>
+    <Include type="all" source="JapanOpeningMoves.xml"/>
+    
+    <Include type="all" source="1Warren/1WarrenAlliedOpeningMoves.xml"/>
+    <Include type="all" source="2Giles/2GilesAlliedOpeningMoves.xml"/>
+    <Include type="all" source="3Lissette/3LissetteAlliedOpeningMoves.xml"/>
+
+    <Include type="all" source="1Oleg/1OlegSovietOpeningMoves.xml"/>
+    <Include type="all" source="2Moskvin/2MoskvinSovietOpeningMoves.xml"/>
+    <Include type="all" source="3Zhana/3ZhanaSovietOpeningMoves.xml"/>
+
+    <Include type="all" source="1Shinzo/1ShinzoJapanOpeningMoves.xml"/>
+    <Include type="all" source="2Kenji/2KenjiJapanOpeningMoves.xml"/>
+    <Include type="all" source="3Naomi/3NaomiJapanOpeningMoves.xml"/>
+
+<!-- New Personality Opening Moves -->
+
+<!-- AGGRO -->
+    <Include type="all" source="4Aggro/Allies/4AggroAlliedOpeningMoves.xml"/>
+    <Include type="all" source="4Aggro/Soviet/4AggroSovietOpeningMoves.xml"/>
+    <Include type="all" source="4Aggro/Japan/4AggroJapanOpeningMoves.xml"/>
+
+<!-- PARANOIA -->
+    <Include type="all" source="5Paranoia/Allies/5ParanoiaAlliedOpeningMoves.xml"/>
+    <Include type="all" source="5Paranoia/Soviet/5ParanoiaSovietOpeningMoves.xml"/>
+    <Include type="all" source="5Paranoia/Japan/5ParanoiaJapanOpeningMoves.xml"/>
+
+<!-- Ace -->
+    <Include type="all" source="6Ace/Allies/6AceAlliedOpeningMoves.xml"/>
+    <Include type="all" source="6Ace/Soviet/6AceSovietOpeningMoves.xml"/>
+    <Include type="all" source="6Ace/Japan/6AceJapanOpeningMoves.xml"/>
+
+<!-- Builder -->
+    <Include type="all" source="7Builder/Allies/7BuilderAlliedOpeningMoves.xml"/>
+    <Include type="all" source="7Builder/Soviet/7BuilderSovietOpeningMoves.xml"/>
+    <Include type="all" source="7Builder/Japan/7BuilderJapanOpeningMoves.xml"/>
+
+<!-- OTHER AI -->
+    <Include type="all" source="OtherOpenings/SanderOpeningMoves.xml"/>
+    <Include type="all" source="OtherOpenings/TysonOpeningMoves.xml"/>
+    <Include type="all" source="OtherOpenings/EnhancedGilesOpeningMoves.xml"/>
+
+<!-- ALL TIME BUILD ORDER COLLECTION -->
+    <Include type="all" source="BOCollection/AllSuperiorOpeningMoves.xml"/>
+    <Include type="all" source="BOCollection/AllNewSuperiorOpeningMoves.xml"/>
+
+
+	</Includes>
+
+</AssetDeclaration>

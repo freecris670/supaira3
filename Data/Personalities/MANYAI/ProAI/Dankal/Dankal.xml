@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="DankalSovietCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Dankal"
+		PersonalityType="Dankal"
+		inheritFrom="DankalSovietCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Dankal"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="SovietStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="SovietIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+    <OpeningMove Name="SB_Warfactory_Tech2End" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="SB_Warfactory" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="SB_islandNaval" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+    <!-- Easy to swap STATES -->
+
+    <!-- ATTACK STATES -->
+		<StrategicState id="S_SimpleAttack_7to50_AggroMicro" State="S_SimpleAttack_7to50_AggroMicro" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="Water_Avoid_2to7_SovNavalAttackMicro" State="Water_Avoid_2to7_SovNavalAttackMicro" Difficulty="HARD BRUTAL"/>
+
+    <!-- TECH STATES -->
+    <BuildState id="FastTech2SlowTech3SovietTechBuildState" State="FastTech2SlowTech3SovietTechBuildState" Difficulty="HARD"/>
+    <BuildState id="FastTech2SlowTech3BrutalSovietTechBuildState" State="FastTech2SlowTech3BrutalSovietTechBuildState" Difficulty="BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="SuperiorSovietsExpansion" State="SuperiorSovietsExpansion" Difficulty="HARD"/>
+    <StrategicState id="SuperiorSovietsExpansionFaster" State="SuperiorSovietsExpansionFaster" Difficulty="HARD"/>
+
+    <StrategicState id="SuperiorBrutalSovietsExpansion" State="SuperiorBrutalSovietsExpansion" Difficulty="BRUTAL"/>
+
+
+
+    <!-- BRUTAL BUILD STATES -->
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorINFINITEBrutalSovietWarfactorySpam" State="SuperiorINFINITEBrutalSovietWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietNavalYardSpam" State="SuperiorINFINITEBrutalSovietNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietAirfieldSpam" State="SuperiorINFINITEBrutalSovietAirfieldSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietBarracksSpam" State="SuperiorINFINITEBrutalSovietBarracksSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+
+    <!-- TEAM WORK STATES -->
+<!--
+    <StrategicState id="SuperiorDefendAllyAircraft" State="SuperiorDefendAllyAircraft" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietDefendAllyOnLand" State="SuperiorSovietDefendAllyOnLand" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietDefendAllyOnWater" State="SuperiorSovietDefendAllyOnWater" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietSupportAllyAttack" State="SuperiorSovietSupportAllyAttack" Difficulty="HARD BRUTAL"/>
+
+-->
+
+    <!-- SPECIAL STATES -->
+
+
+    <!-- Main Offensive States - MEDIUM -->
+    <StrategicState id="GrowingAttacks_Land_MEDIUM" State="GrowingAttacks_Land_MEDIUM" Difficulty="MEDIUM"/>
+    <StrategicState id="GrowingAttacks_Water_MEDIUM" State="GrowingAttacks_Water_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_ProductionKickbacks" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank1" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank2" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank3" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSingularity" Weight="999999%"/>
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>

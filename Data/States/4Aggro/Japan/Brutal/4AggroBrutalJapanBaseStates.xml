@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="4AggroBrutalJapanBarracksSpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <IntervalHeuristic IntervalTime="80s" ActiveTime="15s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="6500" Above="true" />
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="JapanBarracksEgg" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="4AggroBrutalJapanLIGHTBarracksSpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <IntervalHeuristic IntervalTime="100s" ActiveTime="10s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="7500" Above="true" />
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="JapanBarracksEgg" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="4AggroBrutalJapanTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false"  MinEnemyValue="3000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="500s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech3" Heuristic="UPGRADE_TECH" MinTime="500s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="50s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="480s"/>
+
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="550s"/>
+
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="600s"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="4AggroBrutalIslandJapanTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false"  MinEnemyValue="3000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="false" ObjectTypeToUseForTest="JapanAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanBarracksTech3" Heuristic="UPGRADE_TECH" MinTime="500s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech2" Heuristic="UPGRADE_TECH" MinTime="100s"/>
+    <BuildEntry Upgrade="Upgrade_JapanWarFactoryTech3" Heuristic="UPGRADE_TECH" MinTime="500s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech2" Heuristic="UPGRADE_TECH" MinTime="150s"/>
+    <BuildEntry Upgrade="Upgrade_JapanNavalYardTech3" Heuristic="UPGRADE_TECH" MinTime="50s"/>
+    <BuildEntry Build="JapanTechStructureEgg" Heuristic="TECH" MinTime="480s"/>
+
+    <BuildEntry Build="JapanSuperWeaponEgg" Heuristic="TECH" MinTime="550s"/>
+
+    <BuildEntry Build="JapanSuperWeaponAdvancedEgg" Heuristic="TECH" MinTime="600s"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

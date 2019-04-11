@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+
+  <Includes>
+    <Include type="instance" source="KrowCoopBasePersonality.xml" />
+  </Includes>
+
+  <AIPersonalityDefinition
+		id="KrowSovietCoopBasePersonality"
+    PersonalityType="KrowSovietCoopBasePersonality"
+    inheritFrom="KrowCoopBasePersonality"
+		>
+
+    <Side>Soviet</Side>
+
+		<StrategicState id="SovietExpansion"         State="SovietExpansion"            Difficulty="MEDIUM HARD BRUTAL"/>
+		<StrategicState id="SovietNavalBase"         State="SovietNavalBase"            Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+		<StrategicState id="SovietCaptureTech"       State="SovietCaptureTech"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="SovietCaptureWaterHusks" State="SovietCaptureWaterHusks"    Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="SovietDefenseBuildState"     State="SovietDefenseBuildState"    Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <BuildState id="SovietNeededUnits"           State="SovietNeededUnits"          Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+
+    <!-- Defensive modifier on infantry accounting for low speed and crushability -->
+    <UnitModifier Unit="SovietScoutInfantry" OffensiveModifier="0.5" DefensiveModifier="0.5"/> <!-- Bears offense not as good as the AI thinks because they do overkill -->
+    <UnitModifier Unit="SovietAntiInfantryInfantry" OffensiveModifier="5.5" DefensiveModifier="5.2"/>
+    <UnitModifier Unit="SovietAntiVehicleInfantry" OffensiveModifier="3.8" DefensiveModifier="3.2"/>
+    <UnitModifier Unit="SovietHeavyAntiVehicleInfantry" OffensiveModifier="4.3" DefensiveModifier="4.5"/> <!-- Can't be crushed -->
+    <UnitModifier Unit="SovietCommandoTech1" OffensiveModifier="99.0" DefensiveModifier="99.0"/> <!-- Commandos are good.  You pretty much always want them. -->
+
+    <UnitModifier Unit="SovietAntiInfantryVehicle" OffensiveModifier="3.0" DefensiveModifier="2.5"/> <!-- Sickle's Jump ability is a big offensive boost -->
+    <UnitModifier Unit="SovietAntiAirShip_Ground" OffensiveModifier="4.5" DefensiveModifier="15.5"/>
+    <UnitModifier Unit="SovietAntiAirShip" OffensiveModifier="4.5" DefensiveModifier="15.5"/>
+    <UnitModifier Unit="SovietScoutVehicle" OffensiveModifier="1.0" DefensiveModifier="0.75"/> <!-- Terror Drones have poor range, can't attack structures and multiple cannot attack the same unit -->
+    <UnitModifier Unit="SovietAntiVehicleVehicleTech1" OffensiveModifier="9.0" DefensiveModifier="8.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="SovietAntiVehicleVehicleTech3" OffensiveModifier="10.0" DefensiveModifier="9.0"/> <!-- Tanks can crush, reverse move, are robust, and generally very good -->
+    <UnitModifier Unit="SovietAntiStructureVehicle" OffensiveModifier="7.0" DefensiveModifier="5.0"/> <!-- Extreme range makes artillery much more powerful -->
+
+    <UnitModifier Unit="SovietAntiNavyShipTech1" OffensiveModifier="0.75" DefensiveModifier="0.75"/>
+    <UnitModifier Unit="SovietAntiNavyShipTech2" OffensiveModifier="6.3" DefensiveModifier="4.3"/>
+    <UnitModifier Unit="SovietAntiStructureShip" OffensiveModifier="7.5" DefensiveModifier="6.5"/>
+
+    <UnitModifier Unit="SovietFighterAircraft" OffensiveModifier="7.0" DefensiveModifier="10.0"/>
+    <UnitModifier Unit="SovietAntiGroundAircraft" OffensiveModifier="9.0" DefensiveModifier="9.0"/>
+    <UnitModifier Unit="SovietBomberAircraft" OffensiveModifier="12.0" DefensiveModifier="0.2"/> <!-- The Kirov's horrendous speed negates most of its high hitpoints -->
+
+    <SpecificUnitCap Unit="SovietSurveyor" Cap="1" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Player Tech -->
+    
+    <!-- Tier 1 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_TerrorDroneEggs" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_ProductionKickbacks" Weight="100%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_CrushPuppies" Weight="100%"/>
+
+    <!-- Tier 2 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_IrradiateTarget" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank1" Weight="200%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_1" Weight="200%"/>
+
+    <!-- Tier 3 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank1" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank2" Weight="300%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_2" Weight="300%"/>
+
+    <!-- Tier 4 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank2" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank3" Weight="400%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSatellite_Rank_3" Weight="400%"/>
+
+    <!-- Tier 5 -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_OrbitalRefuse_Rank3" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Soviet" Weight="500%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSingularity" Weight="500%"/>
+    
+
+  </AIPersonalityDefinition>
+
+</AssetDeclaration>

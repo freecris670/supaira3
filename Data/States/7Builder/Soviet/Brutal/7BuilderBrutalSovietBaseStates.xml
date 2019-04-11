@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietBuilderAdditionalMCVs"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="5000" Above="true" />
+      <IntervalHeuristic IntervalTime="170s" ActiveTime="30s" CountFrom="AI_START"/>
+      <PathToTargetHeuristic Surface="Land" PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="BuilderForwardMCVExpansionHeuristic" Priority="90"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="600">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="FearlessDefenseMicroManager">
+        <CreateUnits UnitName="SovietMCV" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietBuilderAdditionalMCVs_LandPath"
+    MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="5000" Above="true" />
+      <IntervalHeuristic IntervalTime="170s" ActiveTime="30s" CountFrom="AI_START"/>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="BuilderForwardMCVExpansionLandPathHeuristic" Priority="90"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="600">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="1.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="FearlessDefenseMicroManager">
+        <CreateUnits UnitName="SovietMCV" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorBuilderPowerPlantSpreadBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="1000" Above="true" />
+      <IntervalHeuristic IntervalTime="40s" ActiveTime="50s" CountFrom="AI_START"/>
+    </Heuristic>
+    <BuildEntry Build="SovietPowerPlant" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorSovietBuilderCraneBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="3000" Above="true" />
+      <IntervalHeuristic IntervalTime="170s" ActiveTime="30s" CountFrom="AI_START"/>
+      <TimerHeuristic StartTime="220s" EndTime="-1s"/>
+    </Heuristic>
+    <BuildEntry Build="SovietCrane" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

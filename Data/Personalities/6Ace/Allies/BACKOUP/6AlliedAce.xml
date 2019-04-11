@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="6AlliedAceAlliedCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="6AlliedAce"
+		PersonalityType="6AlliedAce"
+		inheritFrom="6AlliedAceAlliedCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Ace"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="AlliedStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AlliedIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+<!-- HARD DIFFICULTY -->
+
+    <OpeningMove Name="AceBuildOrder1" Weight="200%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AceBuildOrder2" Weight="150%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AceBuildOrder3" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AceBuildOrder4" Weight="100%" Difficulty="MEDIUM HARD">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="A_Island_Naval" Weight="100%" Difficulty="MEDIUM HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+<!-- BRUTAL DIFFICULTY -->
+
+    <OpeningMove Name="AceBrutalBuildOrder1" Weight="200%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AceBrutalBuildOrder2" Weight="150%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AceBrutalBuildOrder3" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AceBrutalBuildOrder4" Weight="100%" Difficulty="BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <!-- BRUTAL BUILD STATES -->
+    <BuildState id="SuperiorBrutalAlliedAirfieldSpam" State="SuperiorBrutalAlliedAirfieldSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalAlliedWarfactorySpam" State="SuperiorBrutalAlliedWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalAlliedNavalYardSpam" State="SuperiorBrutalAlliedNavalYardSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorINFINITEBrutalAlliedWarfactorySpam" State="SuperiorINFINITEBrutalAlliedWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedNavalYardSpam" State="SuperiorINFINITEBrutalAlliedNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedAirfieldSpam" State="SuperiorINFINITEBrutalAlliedAirfieldSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+
+
+    <!-- Main Offensive States - HARD and BRUTAL -->
+		<StrategicState id="SuperiorAceAttackGround" State="SuperiorAceAttackGround" Difficulty="HARD BRUTAL"/>
+		<StrategicState id="SuperiorAceAttackWater" State="SuperiorAceAttackWater" Difficulty="HARD BRUTAL"/>
+		<!-- Main Offensive States - MEDIUM -->
+		<StrategicState id="BalancedAttackGround_MEDIUM" State="BalancedAttackGround_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackWater_MEDIUM" State="BalancedAttackWater_MEDIUM" Difficulty="MEDIUM"/>
+		<StrategicState id="BalancedAttackOverwhelm_MEDIUM" State="BalancedAttackOverwhelm_MEDIUM" Difficulty="MEDIUM"/>
+
+    <!-- Main Offensive States - EASY -->
+    <StrategicState id="BalancedAttackGround_EASY" State="BalancedAttackGround_EASY" Difficulty="EASY"/>
+    <StrategicState id="BalancedAttackWater_EASY" State="BalancedAttackWater_EASY" Difficulty="EASY"/>
+
+    <!-- Unit Preferences -->
+
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_AirPower" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank1" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank2" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank3" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Allies" Weight="999999%"/>
+
+
+	</AIPersonalityDefinition>
+  
+</AssetDeclaration>

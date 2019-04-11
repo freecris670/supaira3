@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="5ParanoiaBrutalSovietTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="10000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="SovietPowerPlantAdvanced" Heuristic="TECH" MinTime="100s"/>
+    <BuildEntry Build="SovietTechStructure" Heuristic="TECH" MinTime="200s"/>
+    <BuildEntry Build="SovietSuperWeapon" Heuristic="TECH" MinTime="240s"/>
+    <BuildEntry Build="SovietSuperWeaponAdvanced" Heuristic="TECH" MinTime="230s"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

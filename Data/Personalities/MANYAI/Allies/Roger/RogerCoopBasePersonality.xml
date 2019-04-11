@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+
+  <Includes>
+    <Include type="instance" source="RogerBasePersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="RogerCoopBasePersonality"
+    PersonalityType="RogerCoopBasePersonality"
+    inheritFrom="RogerBasePersonality"
+    AssaultBeaconRadius="250.0"
+    HoldObjectBeaconRadius="250.0"
+    HoldPositionBeaconRadius="250.0"
+    EmergencyManagerHandleNoIncomeAtDifficulty="EASY MEDIUM HARD BRUTAL"
+    EmergencyManagerHandleNoConyardAtDifficulty="EASY MEDIUM HARD BRUTAL"
+    EmergencyManagerHandleUnderAttackAtDifficulty="EASY MEDIUM HARD BRUTAL"
+		SkirmishTimeTillGreeting="1.5s"
+    CoopPersonality="true"
+		>
+
+    <ResourceMultiplierCheat Percentage="100%" Difficulty="EASY"/>
+    <ResourceMultiplierCheat Percentage="150%" Difficulty="HARD"/>
+    <ResourceMultiplierCheat Percentage="200%" Difficulty="BRUTAL"/>
+
+    <BudgetState id="SuperiorAlliedAceCoopBudget" State="SuperiorAlliedAceCoopBudget" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <BudgetState id="SuperiorAlliedAceDefenseBudget" State="SuperiorAlliedAceDefenseBudget" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <BudgetState id="SuperiorHeavyDefenseBudget" State="SuperiorHeavyDefenseBudget" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Command Behavior -->
+
+    <StrategicState id="CommandAssault_Gather_Land" State="CommandAssault_Gather_Land" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandAssault_Gather_Water" State="CommandAssault_Gather_Water" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandAssault_Land" State="CommandAssault_Land" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandAssault_Water" State="CommandAssault_Water" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="CommandAssault_FighterAircraft" State="CommandAssault_FighterAircraft" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandAssault_BomberAircraft" State="CommandAssault_BomberAircraft" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+		<StrategicState id="CommandHold_Land" State="CommandHold_Land" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="CommandHold_Water" State="CommandHold_Water" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandHold_BomberAircraft" State="CommandHold_BomberAircraft" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="CommandHold_FighterAircraft" State="CommandHold_FighterAircraft" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <StrategicState id="Command_StrikeTarget_Land" State="Command_StrikeTarget_Land" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="Command_StrikeTarget_Water" State="Command_StrikeTarget_Water" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="Command_StrikeTarget_BomberAircraft" State="Command_StrikeTarget_BomberAircraft" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- Miscellaneous Behaviors -->
+    
+    <StrategicState id="CaptureLandHusks" State="CaptureLandHusks" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    <StrategicState id="AttachedBurstDroneRemoval" State="AttachedBurstDroneRemoval" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+    
+  </AIPersonalityDefinition>
+
+
+
+</AssetDeclaration>

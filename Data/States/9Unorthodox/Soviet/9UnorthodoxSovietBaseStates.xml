@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="SovietUnorthodoxRandomUnits">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <BuildEntry Build="SovietBarracks" Heuristic="FACTORY"/>
+    <BuildEntry Build="SovietWarFactory" Heuristic="FACTORY"/>
+    <BuildEntry Build="SovietNavalYard" Heuristic="FACTORY"/>
+    <BuildEntry Build="SovietAirfield" Heuristic="FACTORY"/>
+
+    <BuildEntry Build="SovietScoutInfantry" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiInfantryInfantry" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiVehicleInfantry" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietHeavyAntiVehicleInfantry" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietCommandoTech1" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+
+    <BuildEntry Build="SovietMiner" Heuristic="HARVESTER"/>
+
+    <BuildEntry Build="SovietAntiAirShip_Ground" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietScoutVehicle" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiInfantryVehicle" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiStructureVehicle" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiVehicleVehicleTech1" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiVehicleVehicleTech3" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+
+    <BuildEntry Build="SovietAntiAirShip" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiNavyShipTech1" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiNavyShipTech2" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiStructureShip" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+
+    <BuildEntry Build="SovietFighterAircraft" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietAntiGroundAircraft" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+    <BuildEntry Build="SovietBomberAircraft" Heuristic="RANDOM_UNIT"  PercentHigh="99"/>
+
+  </AIBuildStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorUnorthodoxSovietExpansion"
+    MaxRunningCopies="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="100s" EndTime="-1s" CountFrom="AI_START"/>
+      <OpeningMoveHeuristic Complete="true"/>
+      <TimeSinceLastExpansionHeuristic Time="100s"/>
+      <EnemyNearbyHeuristic Distance="800.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <AllNearbyNodesFullHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic"/>
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="5" MinPowerAdvantage="2.0"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER"
+                    Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false"
+                    MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="SovietSurveyor" MinUnits="1" MaxUnits="1"/>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorSovietUnorthodoxTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="1300.0" EnemyNearby="false" MinEnemyValue="2500">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="SovietPowerPlantAdvanced" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="SovietTechStructure" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="SovietSuperWeapon" Heuristic="TECH" MinTime="150s"/>
+    <BuildEntry Build="SovietSuperWeaponAdvanced" Heuristic="TECH" MinTime="150s"/>
+  </AIBuildStateDefinition>
+
+  <AIStrategicStateDefinition
+    id="SuperiorSovietUnorthodoxAttackGround"
+    MaxTargets="99">
+    <Heuristic>
+      <ConstantHeuristic/>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SuperiorClosestTerrorDronesHeuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorEnemyMCVHeuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack1Heuristic" Priority="40"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack2Heuristic" Priority="30"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack3Heuristic" Priority="80"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack4Heuristic" Priority="60"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack5Heuristic" Priority="99"/>
+    <TargetHeuristic TargetHeuristic="SuperiorMainAttack6Heuristic" Priority="5"/>
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" DisbandAfterRetreatTeamSize="999">
+      <TeamTemplate MinUnits="7" MaxUnits="13"  MinPowerAdvantage="0.8"
+                    RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS"
+                    IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER"
+                    AllowedLocomotorTypes="LAND AMPHIBIOUS AIR"
+                    Priority="STANDARD" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" SortByDistance="false"
+                    MicroManager="SuperiorSovietUnorthodoxMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedFighterAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>AlliedBomberAircraft</ExcludeThing>
+          <ExcludeThing>AlliedSupportAircraft</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>AlliedInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>AlliedAntiAirShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiStructureShip</ExcludeThing>
+          <ExcludeThing>AlliedAntiNavyShipTech1</ExcludeThing>
+          <ExcludeThing>SovietFighterAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiGroundAircraft</ExcludeThing>
+          <ExcludeThing>SovietBomberAircraft</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureVehicle</ExcludeThing>
+          <ExcludeThing>SovietAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanInfiltrationInfantry</ExcludeThing>
+          <ExcludeThing>JapanAntiAirShip</ExcludeThing>
+          <ExcludeThing>JapanAntiStructureShip</ExcludeThing>
+          <ExcludeThing>JapanAntiInfantryVehicle</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+
+
+</AssetDeclaration>

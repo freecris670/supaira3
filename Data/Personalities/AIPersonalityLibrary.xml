@@ -1,0 +1,1263 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes>
+
+    <!-- Global Personalities -->
+    <Include type="all" source="DefaultPersonality.xml"/>
+    <Include type="all" source="RandomPersonalities.xml"/>
+    <Include type="all" source="HuntPersonality.xml"/>
+
+    <Include type="all" source="BasePersonality.xml"/>
+
+    <Include type="all" source="1Warren/1WarrenBasePersonality.xml"/>
+    <Include type="all" source="1Warren/1WarrenAlliedBalanced.xml"/> <!--WarrenAI-->
+    <Include type="all" source="1Warren/1WarrenAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="1Warren/1WarrenAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="1Warren/1WarrenCoopBasePersonality.xml"/>
+
+    <Include type="all" source="2Giles/2GilesBasePersonality.xml"/>
+    <Include type="all" source="2giles/2GilesAlliedSquadronLeader.xml"/> <!--GilesAI-->
+    <Include type="all" source="2giles/2GilesAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="2giles/2GilesAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="2giles/2GilesCoopBasePersonality.xml"/>
+
+    <Include type="all" source="3Lissette/3LissetteBasePersonality.xml"/>
+    <Include type="all" source="3Lissette/3LissetteAlliedSpecialForces.xml"/> <!--LissetteAI-->
+    <Include type="all" source="3Lissette/3LissetteAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="3Lissette/3LissetteAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="3Lissette/3LissetteCoopBasePersonality.xml"/>
+
+    <Include type="all" source="1Oleg/1OlegBasePersonality.xml"/>
+    <Include type="all" source="1Oleg/1OlegSovietBalanced.xml"/> <!--OlegAI-->
+    <Include type="all" source="1Oleg/1OlegSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="1Oleg/1OlegSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="1Oleg/1OlegCoopBasePersonality.xml"/>
+
+    <Include type="all" source="2Moskvin/2MoskvinBasePersonality.xml"/>
+    <Include type="all" source="2Moskvin/2MoskvinSovietShockSpecialist.xml"/> <!--MoskvinAI-->
+    <Include type="all" source="2Moskvin/2MoskvinSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="2Moskvin/2MoskvinSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="2Moskvin/2MoskvinCoopBasePersonality.xml"/>
+
+    <Include type="all" source="3Zhana/3ZhanaBasePersonality.xml"/>
+    <Include type="all" source="3Zhana/3ZhanaSovietAirMarshall.xml"/> <!--ZhanaAI-->
+    <Include type="all" source="3Zhana/3ZhanaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="3Zhana/3ZhanaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="3Zhana/3ZhanaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="1Shinzo/1ShinzoBasePersonality.xml"/>
+    <Include type="all" source="1Shinzo/1ShinzoJapanBalanced.xml"/> <!--ShinzoAI-->
+    <Include type="all" source="1Shinzo/1ShinzoJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="1Shinzo/1ShinzoJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="1Shinzo/1ShinzoCoopBasePersonality.xml"/>
+
+    <Include type="all" source="2Kenji/2KenjiBasePersonality.xml"/>
+    <Include type="all" source="2Kenji/2KenjiJapanMechaWarfare.xml"/> <!--KenjiAI-->
+    <Include type="all" source="2Kenji/2KenjiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="2Kenji/2KenjiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="2Kenji/2KenjiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="3Naomi/3NaomiBasePersonality.xml"/>
+    <Include type="all" source="3Naomi/3NaomiJapanFleetCommand.xml"/> <!--NaomiAI-->
+    <Include type="all" source="3Naomi/3NaomiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="3Naomi/3NaomiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="3Naomi/3NaomiCoopBasePersonality.xml"/>
+
+	<!-- NEW PERSONALITIES -->
+
+<!-- AGGRO PERSONALITIES -->
+<!-- Allied -->
+    <Include type="all" source="4Aggro/Allies/4AlliedAggroBasePersonality.xml"/>
+    <Include type="all" source="4Aggro/Allies/4AlliedAggro.xml"/> <!--Aggro Allied AI-->
+    <Include type="all" source="4Aggro/Allies/4AlliedAggroAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="4Aggro/Allies/4AlliedAggroAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="4Aggro/Allies/4AlliedAggroCoopBasePersonality.xml"/>
+<!-- Soviet -->
+    <Include type="all" source="4Aggro/Soviet/4SovietAggroBasePersonality.xml"/>
+    <Include type="all" source="4Aggro/Soviet/4SovietAggro.xml"/> <!--Aggro Soviet AI-->
+    <Include type="all" source="4Aggro/Soviet/4SovietAggroSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="4Aggro/Soviet/4SovietAggroSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="4Aggro/Soviet/4SovietAggroCoopBasePersonality.xml"/>
+<!-- Japan -->
+    <Include type="all" source="4Aggro/Japan/4JapanAggroBasePersonality.xml"/>
+    <Include type="all" source="4Aggro/Japan/4JapanAggro.xml"/> <!--Aggro Japan AI-->
+    <Include type="all" source="4Aggro/Japan/4JapanAggroJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="4Aggro/Japan/4JapanAggroJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="4Aggro/Japan/4JapanAggroCoopBasePersonality.xml"/>
+
+<!-- PARANOIA PERSONALITIES -->
+<!-- Allied -->
+    <Include type="all" source="5Paranoia/Allies/5AlliedParanoiaBasePersonality.xml"/>
+    <Include type="all" source="5Paranoia/Allies/5AlliedParanoia.xml"/> <!--Paranoia Allied AI-->
+    <Include type="all" source="5Paranoia/Allies/5AlliedParanoiaAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="5Paranoia/Allies/5AlliedParanoiaAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="5Paranoia/Allies/5AlliedParanoiaCoopBasePersonality.xml"/>
+<!-- Soviet -->
+    <Include type="all" source="5Paranoia/Soviet/5SovietParanoiaBasePersonality.xml"/>
+    <Include type="all" source="5Paranoia/Soviet/5SovietParanoia.xml"/> <!--Paranoia Soviet AI-->
+    <Include type="all" source="5Paranoia/Soviet/5SovietParanoiaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="5Paranoia/Soviet/5SovietParanoiaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="5Paranoia/Soviet/5SovietParanoiaCoopBasePersonality.xml"/>
+<!-- Japan -->
+    <Include type="all" source="5Paranoia/Japan/5JapanParanoiaBasePersonality.xml"/>
+    <Include type="all" source="5Paranoia/Japan/5JapanParanoia.xml"/> <!--Paranoia Japan AI-->
+    <Include type="all" source="5Paranoia/Japan/5JapanParanoiaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="5Paranoia/Japan/5JapanParanoiaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="5Paranoia/Japan/5JapanParanoiaCoopBasePersonality.xml"/>
+
+<!-- ACE PERSONALITIES -->
+<!-- Allied -->
+    <Include type="all" source="6Ace/Allies/6AlliedAceBasePersonality.xml"/>
+    <Include type="all" source="6Ace/Allies/6AlliedAce.xml"/> <!--Ace Allied AI-->
+    <Include type="all" source="6Ace/Allies/6AlliedAceAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="6Ace/Allies/6AlliedAceAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="6Ace/Allies/6AlliedAceCoopBasePersonality.xml"/>
+<!-- Soviet -->
+    <Include type="all" source="6Ace/Soviet/6SovietAceBasePersonality.xml"/>
+    <Include type="all" source="6Ace/Soviet/6SovietAce.xml"/> <!--Ace Soviet AI-->
+    <Include type="all" source="6Ace/Soviet/6SovietAceSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="6Ace/Soviet/6SovietAceSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="6Ace/Soviet/6SovietAceCoopBasePersonality.xml"/>
+<!-- Japan -->
+    <Include type="all" source="6Ace/Japan/6JapanAceBasePersonality.xml"/>
+    <Include type="all" source="6Ace/Japan/6JapanAce.xml"/> <!--Ace Japan AI-->
+    <Include type="all" source="6Ace/Japan/6JapanAceJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="6Ace/Japan/6JapanAceJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="6Ace/Japan/6JapanAceCoopBasePersonality.xml"/>
+
+<!-- BUILDER PERSONALITIES --><!--Builder AI-->
+    <Include type="all" source="7Builder/Allies/7AlliedBuilderBasePersonality.xml"/>
+    <Include type="all" source="7Builder/Allies/7AlliedBuilder.xml"/> 
+    <Include type="all" source="7Builder/Allies/7AlliedBuilderAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="7Builder/Allies/7AlliedBuilderAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="7Builder/Allies/7AlliedBuilderCoopBasePersonality.xml"/>
+
+    <Include type="all" source="7Builder/Soviet/7SovietBuilderBasePersonality.xml"/>
+    <Include type="all" source="7Builder/Soviet/7SovietBuilder.xml"/> 
+    <Include type="all" source="7Builder/Soviet/7SovietBuilderSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="7Builder/Soviet/7SovietBuilderSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="7Builder/Soviet/7SovietBuilderCoopBasePersonality.xml"/>
+
+    <Include type="all" source="7Builder/Japan/7JapanBuilderBasePersonality.xml"/>
+    <Include type="all" source="7Builder/Japan/7JapanBuilder.xml"/> 
+    <Include type="all" source="7Builder/Japan/7JapanBuilderJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="7Builder/Japan/7JapanBuilderJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="7Builder/Japan/7JapanBuilderCoopBasePersonality.xml"/>
+
+<!-- COMPLEXITY PERSONALITIES -->
+<!-- Allied -->
+    <Include type="all" source="8Complexity/Allies/8AlliedComplexityBasePersonality.xml"/>
+    <Include type="all" source="8Complexity/Allies/8AlliedComplexity.xml"/> <!--Complexity Allied AI-->
+    <Include type="all" source="8Complexity/Allies/8AlliedComplexityAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="8Complexity/Allies/8AlliedComplexityAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="8Complexity/Allies/8AlliedComplexityCoopBasePersonality.xml"/>
+<!-- Soviet -->
+    <Include type="all" source="8Complexity/Soviet/8SovietComplexityBasePersonality.xml"/>
+    <Include type="all" source="8Complexity/Soviet/8SovietComplexity.xml"/> <!--Complexity Soviet AI-->
+    <Include type="all" source="8Complexity/Soviet/8SovietComplexitySovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="8Complexity/Soviet/8SovietComplexitySovietCoopBasePersonality.xml"/>
+    <Include type="all" source="8Complexity/Soviet/8SovietComplexityCoopBasePersonality.xml"/>
+<!-- Japan -->
+    <Include type="all" source="8Complexity/Japan/8JapanComplexityBasePersonality.xml"/>
+    <Include type="all" source="8Complexity/Japan/8JapanComplexity.xml"/> <!--Complexity Japan AI-->
+    <Include type="all" source="8Complexity/Japan/8JapanComplexityJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="8Complexity/Japan/8JapanComplexityJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="8Complexity/Japan/8JapanComplexityCoopBasePersonality.xml"/>
+
+<!-- UNORTHODOX PERSONALITIES -->
+<!-- Allied -->
+    <Include type="all" source="9Unorthodox/Allies/9AlliedUnorthodoxBasePersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Allies/9AlliedUnorthodox.xml"/> <!--Unorthodox Allied AI-->
+    <Include type="all" source="9Unorthodox/Allies/9AlliedUnorthodoxAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Allies/9AlliedUnorthodoxAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Allies/9AlliedUnorthodoxCoopBasePersonality.xml"/>
+<!-- Soviet -->
+    <Include type="all" source="9Unorthodox/Soviet/9SovietUnorthodoxBasePersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Soviet/9SovietUnorthodox.xml"/> <!--Unorthodox Soviet AI-->
+    <Include type="all" source="9Unorthodox/Soviet/9SovietUnorthodoxSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Soviet/9SovietUnorthodoxSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Soviet/9SovietUnorthodoxCoopBasePersonality.xml"/>
+<!-- Japan -->
+    <Include type="all" source="9Unorthodox/Japan/9JapanUnorthodoxBasePersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Japan/9JapanUnorthodox.xml"/> <!--Unorthodox Japan AI-->
+    <Include type="all" source="9Unorthodox/Japan/9JapanUnorthodoxJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Japan/9JapanUnorthodoxJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="9Unorthodox/Japan/9JapanUnorthodoxCoopBasePersonality.xml"/>
+
+<!-- MANY PERSONALITIES -->
+<!-- Allied -->
+    <Include type="all" source="MANYAI/Allies/Isabelle/IsabelleBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Isabelle/Isabelle.xml"/> <!--Isabelle-->
+    <Include type="all" source="MANYAI/Allies/Isabelle/IsabelleAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Isabelle/IsabelleAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Isabelle/IsabelleCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Allies/MyNameIsNumbers/MyNameIsNumbersBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/MyNameIsNumbers/MyNameIsNumbers.xml"/> <!--Lyle-->
+    <Include type="all" source="MANYAI/Allies/MyNameIsNumbers/MyNameIsNumbersAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/MyNameIsNumbers/MyNameIsNumbersAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/MyNameIsNumbers/MyNameIsNumbersCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Allies/RennyTheSlick/RennyTheSlickBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/RennyTheSlick/RennyTheSlick.xml"/> <!--Renny-->
+    <Include type="all" source="MANYAI/Allies/RennyTheSlick/RennyTheSlickAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/RennyTheSlick/RennyTheSlickAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/RennyTheSlick/RennyTheSlickCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Allies/FreeBee/FreeBeeBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/FreeBee/FreeBee.xml"/> <!--Benjamin-->
+    <Include type="all" source="MANYAI/Allies/FreeBee/FreeBeeAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/FreeBee/FreeBeeAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/FreeBee/FreeBeeCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Allies/RealMenUseDolphins/RealMenUseDolphinsBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/RealMenUseDolphins/RealMenUseDolphins.xml"/> <!--Finn-->
+    <Include type="all" source="MANYAI/Allies/RealMenUseDolphins/RealMenUseDolphinsAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/RealMenUseDolphins/RealMenUseDolphinsAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/RealMenUseDolphins/RealMenUseDolphinsCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Allies/Roger/RogerBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Roger/Roger.xml"/> <!--Roger-->
+    <Include type="all" source="MANYAI/Allies/Roger/RogerAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Roger/RogerAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Roger/RogerCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Allies/Sid/SidBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Sid/Sid.xml"/> <!--Sid-->
+    <Include type="all" source="MANYAI/Allies/Sid/SidAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Sid/SidAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Allies/Sid/SidCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/Soviet/DemTanx/DemTanxBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/DemTanx/DemTanx.xml"/> <!--Anton-->
+    <Include type="all" source="MANYAI/Soviet/DemTanx/DemTanxSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/DemTanx/DemTanxSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/DemTanx/DemTanxCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Soviet/Jones/JonesBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Jones/Jones.xml"/> <!--Jones-->
+    <Include type="all" source="MANYAI/Soviet/Jones/JonesSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Jones/JonesSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Jones/JonesCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Soviet/ImBehindYou/ImBehindYouBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/ImBehindYou/ImBehindYou.xml"/> <!--Hine-->
+    <Include type="all" source="MANYAI/Soviet/ImBehindYou/ImBehindYouSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/ImBehindYou/ImBehindYouSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/ImBehindYou/ImBehindYouCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Soviet/Dexter/DexterBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Dexter/Dexter.xml"/> <!--Dexter-->
+    <Include type="all" source="MANYAI/Soviet/Dexter/DexterSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Dexter/DexterSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Dexter/DexterCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Soviet/SickShrapnel/SickShrapnelBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/SickShrapnel/SickShrapnel.xml"/> <!--Dickinson-->
+    <Include type="all" source="MANYAI/Soviet/SickShrapnel/SickShrapnelSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/SickShrapnel/SickShrapnelSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/SickShrapnel/SickShrapnelCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Soviet/Spudnik/SpudnikBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Spudnik/Spudnik.xml"/> <!--Spudnik-->
+    <Include type="all" source="MANYAI/Soviet/Spudnik/SpudnikSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Spudnik/SpudnikSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Spudnik/SpudnikCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Soviet/Stanislav/StanislavBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Stanislav/Stanislav.xml"/> <!--Stanislav-->
+    <Include type="all" source="MANYAI/Soviet/Stanislav/StanislavSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Stanislav/StanislavSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Soviet/Stanislav/StanislavCoopBasePersonality.xml"/>
+
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/Japan/WhatShoguns/WhatShogunsBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/WhatShoguns/WhatShoguns.xml"/> <!--Stella-->
+    <Include type="all" source="MANYAI/Japan/WhatShoguns/WhatShogunsJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/WhatShoguns/WhatShogunsJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/WhatShoguns/WhatShogunsCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Japan/Im12WhatIsThis/Im12WhatIsThis.xml"/>
+    <Include type="all" source="MANYAI/Japan/Im12WhatIsThis/Im12WhatIsThis.xml"/> <!--Scraps-->
+    <Include type="all" source="MANYAI/Japan/Im12WhatIsThis/Im12WhatIsThisJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Im12WhatIsThis/Im12WhatIsThisJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Im12WhatIsThis/Im12WhatIsThisCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Japan/Doodle/DoodleBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Doodle/Doodle.xml"/> <!--Doodle-->
+    <Include type="all" source="MANYAI/Japan/Doodle/DoodleJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Doodle/DoodleJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Doodle/DoodleCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Japan/SuperHelix/SuperHelixBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/SuperHelix/SuperHelix.xml"/> <!--Helix-->
+    <Include type="all" source="MANYAI/Japan/SuperHelix/SuperHelixJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/SuperHelix/SuperHelixJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/SuperHelix/SuperHelixCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Japan/CaseyRux/CaseyRuxBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/CaseyRux/CaseyRux.xml"/> <!--Casey-->
+    <Include type="all" source="MANYAI/Japan/CaseyRux/CaseyRuxJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/CaseyRux/CaseyRuxJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/CaseyRux/CaseyRuxCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Japan/Daichi/DaichiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Daichi/Daichi.xml"/> <!--Daichi-->
+    <Include type="all" source="MANYAI/Japan/Daichi/DaichiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Daichi/DaichiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Daichi/DaichiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/Japan/Yosuke/YosukeBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Yosuke/Yosuke.xml"/> <!--Yosuke-->
+    <Include type="all" source="MANYAI/Japan/Yosuke/YosukeJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Yosuke/YosukeJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/Japan/Yosuke/YosukeCoopBasePersonality.xml"/>
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- MANY PERSONALITIES V2 -->
+<!-- Allied -->
+    <Include type="all" source="MANYAI/V2/Allies/William/WilliamBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/William/William.xml"/> <!--William-->
+    <Include type="all" source="MANYAI/V2/Allies/William/WilliamAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/William/WilliamAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/William/WilliamCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Allies/Kaitlyn/KaitlynBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Kaitlyn/Kaitlyn.xml"/> <!--Kaitlyn-->
+    <Include type="all" source="MANYAI/V2/Allies/Kaitlyn/KaitlynAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Kaitlyn/KaitlynAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Kaitlyn/KaitlynCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Allies/Gregory/GregoryBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Gregory/Gregory.xml"/> <!--Gregory-->
+    <Include type="all" source="MANYAI/V2/Allies/Gregory/GregoryAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Gregory/GregoryAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Gregory/GregoryCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Allies/Marcus/MarcusBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Marcus/Marcus.xml"/> <!--Marcus-->
+    <Include type="all" source="MANYAI/V2/Allies/Marcus/MarcusAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Marcus/MarcusAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Marcus/MarcusCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Allies/Maximilien/MaximilienBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Maximilien/Maximilien.xml"/> <!--Maximilien-->
+    <Include type="all" source="MANYAI/V2/Allies/Maximilien/MaximilienAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Maximilien/MaximilienAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Maximilien/MaximilienCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Allies/Aldric/AldricBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Aldric/Aldric.xml"/> <!--Aldric-->
+    <Include type="all" source="MANYAI/V2/Allies/Aldric/AldricAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Aldric/AldricAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Allies/Aldric/AldricCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/V2/Soviet/Dimitri/DimitriBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Dimitri/Dimitri.xml"/> <!--Dimitri-->
+    <Include type="all" source="MANYAI/V2/Soviet/Dimitri/DimitriSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Dimitri/DimitriSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Dimitri/DimitriCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Soviet/Esfir/EsfirBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Esfir/Esfir.xml"/> <!--Esfir-->
+    <Include type="all" source="MANYAI/V2/Soviet/Esfir/EsfirSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Esfir/EsfirSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Esfir/EsfirCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Soviet/Iosif/IosifBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Iosif/Iosif.xml"/> <!--Iosif-->
+    <Include type="all" source="MANYAI/V2/Soviet/Iosif/IosifSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Iosif/IosifSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Iosif/IosifCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Soviet/Bogatir/BogatirBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Bogatir/Bogatir.xml"/> <!--Bogatir-->
+    <Include type="all" source="MANYAI/V2/Soviet/Bogatir/BogatirSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Bogatir/BogatirSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Bogatir/BogatirCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Soviet/svyatoslav/svyatoslavBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/svyatoslav/svyatoslav.xml"/> <!--svyatoslav-->
+    <Include type="all" source="MANYAI/V2/Soviet/svyatoslav/svyatoslavSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/svyatoslav/svyatoslavSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/svyatoslav/svyatoslavCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Soviet/Nataliya/NataliyaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Nataliya/Nataliya.xml"/> <!--Nataliya-->
+    <Include type="all" source="MANYAI/V2/Soviet/Nataliya/NataliyaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Nataliya/NataliyaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Nataliya/NataliyaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Soviet/Rodion/RodionBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Rodion/Rodion.xml"/> <!--Rodion-->
+    <Include type="all" source="MANYAI/V2/Soviet/Rodion/RodionSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Rodion/RodionSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Soviet/Rodion/RodionCoopBasePersonality.xml"/>
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/V2/Japan/Rai/RaiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Rai/Rai.xml"/> <!--Rai-->
+    <Include type="all" source="MANYAI/V2/Japan/Rai/RaiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Rai/RaiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Rai/RaiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Japan/Hikari/HikariBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Hikari/Hikari.xml"/> <!--Hikari-->
+    <Include type="all" source="MANYAI/V2/Japan/Hikari/HikariJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Hikari/HikariJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Hikari/HikariCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Japan/Takeda/TakedaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Takeda/Takeda.xml"/> <!--Takeda-->
+    <Include type="all" source="MANYAI/V2/Japan/Takeda/TakedaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Takeda/TakedaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Takeda/TakedaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Japan/Kyoichi/KyoichiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Kyoichi/Kyoichi.xml"/> <!--Kyoichi-->
+    <Include type="all" source="MANYAI/V2/Japan/Kyoichi/KyoichiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Kyoichi/KyoichiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Kyoichi/KyoichiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Japan/Jiro/JiroBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Jiro/Jiro.xml"/> <!--Jiro-->
+    <Include type="all" source="MANYAI/V2/Japan/Jiro/JiroJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Jiro/JiroJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Jiro/JiroCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Japan/Emiko/EmikoBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Emiko/Emiko.xml"/> <!--Emiko-->
+    <Include type="all" source="MANYAI/V2/Japan/Emiko/EmikoJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Emiko/EmikoJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Emiko/EmikoCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V2/Japan/Hirokazu/HirokazuBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Hirokazu/Hirokazu.xml"/> <!--Hirokazu-->
+    <Include type="all" source="MANYAI/V2/Japan/Hirokazu/HirokazuJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Hirokazu/HirokazuJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V2/Japan/Hirokazu/HirokazuCoopBasePersonality.xml"/>
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- MANY PERSONALITIES V3 -->
+
+<!-- Allied -->
+    <Include type="all" source="MANYAI/V3/Allies/Scott/ScottBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Scott/Scott.xml"/> <!--Scott-->
+    <Include type="all" source="MANYAI/V3/Allies/Scott/ScottAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Scott/ScottAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Scott/ScottCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Allies/Sarah/SarahBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Sarah/Sarah.xml"/> <!--Sarah-->
+    <Include type="all" source="MANYAI/V3/Allies/Sarah/SarahAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Sarah/SarahAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Sarah/SarahCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Allies/Simon/SimonBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Simon/Simon.xml"/> <!--Simon-->
+    <Include type="all" source="MANYAI/V3/Allies/Simon/SimonAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Simon/SimonAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Simon/SimonCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Allies/Damien/DamienBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Damien/Damien.xml"/> <!--Damien-->
+    <Include type="all" source="MANYAI/V3/Allies/Damien/DamienAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Damien/DamienAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Allies/Damien/DamienCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/V3/Soviet/Evgeni/EvgeniBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Evgeni/Evgeni.xml"/> <!--Evgeni-->
+    <Include type="all" source="MANYAI/V3/Soviet/Evgeni/EvgeniSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Evgeni/EvgeniSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Evgeni/EvgeniCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Soviet/Alisa/AlisaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Alisa/Alisa.xml"/> <!--Alisa-->
+    <Include type="all" source="MANYAI/V3/Soviet/Alisa/AlisaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Alisa/AlisaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Alisa/AlisaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Soviet/Vukovich/VukovichBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Vukovich/Vukovich.xml"/> <!--Vukovich-->
+    <Include type="all" source="MANYAI/V3/Soviet/Vukovich/VukovichSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Vukovich/VukovichSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Vukovich/VukovichCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Soviet/Konstantin/KonstantinBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Konstantin/Konstantin.xml"/> <!--Konstantin-->
+    <Include type="all" source="MANYAI/V3/Soviet/Konstantin/KonstantinSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Konstantin/KonstantinSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Soviet/Konstantin/KonstantinCoopBasePersonality.xml"/>
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/V3/Japan/Maasaki/MaasakiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Maasaki/Maasaki.xml"/> <!--Maasaki-->
+    <Include type="all" source="MANYAI/V3/Japan/Maasaki/MaasakiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Maasaki/MaasakiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Maasaki/MaasakiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Japan/Kimiko/KimikoBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Kimiko/Kimiko.xml"/> <!--Kimiko-->
+    <Include type="all" source="MANYAI/V3/Japan/Kimiko/KimikoJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Kimiko/KimikoJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Kimiko/KimikoCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Japan/Reiji/ReijiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Reiji/Reiji.xml"/> <!--Reiji-->
+    <Include type="all" source="MANYAI/V3/Japan/Reiji/ReijiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Reiji/ReijiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Reiji/ReijiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V3/Japan/Takumi/TakumiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Takumi/Takumi.xml"/> <!--Takumi-->
+    <Include type="all" source="MANYAI/V3/Japan/Takumi/TakumiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Takumi/TakumiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V3/Japan/Takumi/TakumiCoopBasePersonality.xml"/>
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- MANY PERSONALITIES V4 -->
+
+<!-- Allied -->
+    <Include type="all" source="MANYAI/V4/Allies/Jake/JakeBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Jake/Jake.xml"/> <!--Jake-->
+    <Include type="all" source="MANYAI/V4/Allies/Jake/JakeAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Jake/JakeAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Jake/JakeCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Allies/Samuel/SamuelBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Samuel/Samuel.xml"/> <!--Samuel-->
+    <Include type="all" source="MANYAI/V4/Allies/Samuel/SamuelAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Samuel/SamuelAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Samuel/SamuelCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Allies/Daniel/DanielBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Daniel/Daniel.xml"/> <!--Daniel-->
+    <Include type="all" source="MANYAI/V4/Allies/Daniel/DanielAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Daniel/DanielAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Daniel/DanielCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Allies/Sophia/SophiaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Sophia/Sophia.xml"/> <!--Sophia-->
+    <Include type="all" source="MANYAI/V4/Allies/Sophia/SophiaAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Sophia/SophiaAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Sophia/SophiaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Allies/Everett/EverettBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Everett/Everett.xml"/> <!--Everett-->
+    <Include type="all" source="MANYAI/V4/Allies/Everett/EverettAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Everett/EverettAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Everett/EverettCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Allies/Michael/MichaelBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Michael/Michael.xml"/> <!--Michael-->
+    <Include type="all" source="MANYAI/V4/Allies/Michael/MichaelAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Michael/MichaelAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Allies/Michael/MichaelCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/V4/Soviet/Ruminov/RuminovBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Ruminov/Ruminov.xml"/> <!--Ruminov-->
+    <Include type="all" source="MANYAI/V4/Soviet/Ruminov/RuminovSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Ruminov/RuminovSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Ruminov/RuminovCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Soviet/Kirill/KirillBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Kirill/Kirill.xml"/> <!--Kirill-->
+    <Include type="all" source="MANYAI/V4/Soviet/Kirill/KirillSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Kirill/KirillSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Kirill/KirillCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Soviet/Koldan/KoldanBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Koldan/Koldan.xml"/> <!--Koldan-->
+    <Include type="all" source="MANYAI/V4/Soviet/Koldan/KoldanSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Koldan/KoldanSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Koldan/KoldanCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Soviet/Volkan/VolkanBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Volkan/Volkan.xml"/> <!--Volkan-->
+    <Include type="all" source="MANYAI/V4/Soviet/Volkan/VolkanSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Volkan/VolkanSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Volkan/VolkanCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Soviet/Krow/KrowBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Krow/Krow.xml"/> <!--Krow-->
+    <Include type="all" source="MANYAI/V4/Soviet/Krow/KrowSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Krow/KrowSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Krow/KrowCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Soviet/Titov/TitovBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Titov/Titov.xml"/> <!--Titov-->
+    <Include type="all" source="MANYAI/V4/Soviet/Titov/TitovSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Titov/TitovSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Soviet/Titov/TitovCoopBasePersonality.xml"/>
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/V4/Japan/Hiroku/HirokuBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Hiroku/Hiroku.xml"/> <!--Hiroku-->
+    <Include type="all" source="MANYAI/V4/Japan/Hiroku/HirokuJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Hiroku/HirokuJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Hiroku/HirokuCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Japan/Riku/RikuBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Riku/Riku.xml"/> <!--Riku-->
+    <Include type="all" source="MANYAI/V4/Japan/Riku/RikuJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Riku/RikuJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Riku/RikuCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Japan/Touma/ToumaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Touma/Touma.xml"/> <!--Touma-->
+    <Include type="all" source="MANYAI/V4/Japan/Touma/ToumaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Touma/ToumaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Touma/ToumaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Japan/Tomichi/TomichiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Tomichi/Tomichi.xml"/> <!--Tomichi-->
+    <Include type="all" source="MANYAI/V4/Japan/Tomichi/TomichiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Tomichi/TomichiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Tomichi/TomichiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Japan/Yisagi/YisagiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Yisagi/Yisagi.xml"/> <!--Yisagi-->
+    <Include type="all" source="MANYAI/V4/Japan/Yisagi/YisagiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Yisagi/YisagiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Yisagi/YisagiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V4/Japan/Akihiko/AkihikoBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Akihiko/Akihiko.xml"/> <!--Akihiko-->
+    <Include type="all" source="MANYAI/V4/Japan/Akihiko/AkihikoJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Akihiko/AkihikoJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V4/Japan/Akihiko/AkihikoCoopBasePersonality.xml"/>
+
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- MANY PERSONALITIES V5 -->
+
+<!-- Allied -->
+    <Include type="all" source="MANYAI/V5/Allies/Hildebrand/HildebrandBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Allies/Hildebrand/Hildebrand.xml"/> <!--Hildebrand-->
+    <Include type="all" source="MANYAI/V5/Allies/Hildebrand/HildebrandAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Allies/Hildebrand/HildebrandAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Allies/Hildebrand/HildebrandCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/V5/Soviet/Kazimir/KazimirBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Soviet/Kazimir/Kazimir.xml"/> <!--Kazimir-->
+    <Include type="all" source="MANYAI/V5/Soviet/Kazimir/KazimirSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Soviet/Kazimir/KazimirSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Soviet/Kazimir/KazimirCoopBasePersonality.xml"/>
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/V5/Japan/Hidehisa/HidehisaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Japan/Hidehisa/Hidehisa.xml"/> <!--Hidehisa-->
+    <Include type="all" source="MANYAI/V5/Japan/Hidehisa/HidehisaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Japan/Hidehisa/HidehisaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V5/Japan/Hidehisa/HidehisaCoopBasePersonality.xml"/>
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- MANY PERSONALITIES V6 -->
+
+<!-- Allied -->
+    <Include type="all" source="MANYAI/V6/Allies/Edgar/EdgarBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Edgar/Edgar.xml"/> <!--Edgar-->
+    <Include type="all" source="MANYAI/V6/Allies/Edgar/EdgarAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Edgar/EdgarAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Edgar/EdgarCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Allies/Logan/LoganBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Logan/Logan.xml"/> <!--Logan-->
+    <Include type="all" source="MANYAI/V6/Allies/Logan/LoganAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Logan/LoganAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Logan/LoganCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Allies/Bern/BernBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Bern/Bern.xml"/> <!--Bern-->
+    <Include type="all" source="MANYAI/V6/Allies/Bern/BernAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Bern/BernAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Bern/BernCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Allies/Regina/ReginaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Regina/Regina.xml"/> <!--Regina-->
+    <Include type="all" source="MANYAI/V6/Allies/Regina/ReginaAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Regina/ReginaAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Regina/ReginaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Allies/Sigil/SigilBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Sigil/Sigil.xml"/> <!--Sigil-->
+    <Include type="all" source="MANYAI/V6/Allies/Sigil/SigilAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Sigil/SigilAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Sigil/SigilCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Allies/Taylor/TaylorBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Taylor/Taylor.xml"/> <!--Taylor-->
+    <Include type="all" source="MANYAI/V6/Allies/Taylor/TaylorAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Taylor/TaylorAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Allies/Taylor/TaylorCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/V6/Soviet/Antosha/AntoshaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Antosha/Antosha.xml"/> <!--Antosha-->
+    <Include type="all" source="MANYAI/V6/Soviet/Antosha/AntoshaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Antosha/AntoshaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Antosha/AntoshaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Soviet/Nina/NinaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Nina/Nina.xml"/> <!--Nina-->
+    <Include type="all" source="MANYAI/V6/Soviet/Nina/NinaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Nina/NinaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Nina/NinaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Soviet/Areseni/AreseniBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Areseni/Areseni.xml"/> <!--Areseni-->
+    <Include type="all" source="MANYAI/V6/Soviet/Areseni/AreseniSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Areseni/AreseniSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Areseni/AreseniCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Soviet/Kolzak/KolzakBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Kolzak/Kolzak.xml"/> <!--Kolzak-->
+    <Include type="all" source="MANYAI/V6/Soviet/Kolzak/KolzakSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Kolzak/KolzakSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Kolzak/KolzakCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Soviet/Leontiy/LeontiyBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Leontiy/Leontiy.xml"/> <!--Leontiy-->
+    <Include type="all" source="MANYAI/V6/Soviet/Leontiy/LeontiySovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Leontiy/LeontiySovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Leontiy/LeontiyCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Soviet/Motya/MotyaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Motya/Motya.xml"/> <!--Motya-->
+    <Include type="all" source="MANYAI/V6/Soviet/Motya/MotyaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Motya/MotyaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Soviet/Motya/MotyaCoopBasePersonality.xml"/>
+
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/V6/Japan/Iki/IkiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Iki/Iki.xml"/> <!--Iki-->
+    <Include type="all" source="MANYAI/V6/Japan/Iki/IkiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Iki/IkiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Iki/IkiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Japan/Rakeru/RakeruBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Rakeru/Rakeru.xml"/> <!--Rakeru-->
+    <Include type="all" source="MANYAI/V6/Japan/Rakeru/RakeruJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Rakeru/RakeruJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Rakeru/RakeruCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Japan/Hitomi/HitomiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Hitomi/Hitomi.xml"/> <!--Hitomi-->
+    <Include type="all" source="MANYAI/V6/Japan/Hitomi/HitomiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Hitomi/HitomiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Hitomi/HitomiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Japan/Kiyoshi/KiyoshiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Kiyoshi/Kiyoshi.xml"/> <!--Kiyoshi-->
+    <Include type="all" source="MANYAI/V6/Japan/Kiyoshi/KiyoshiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Kiyoshi/KiyoshiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Kiyoshi/KiyoshiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Japan/Shigeru/ShigeruBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Shigeru/Shigeru.xml"/> <!--Shigeru-->
+    <Include type="all" source="MANYAI/V6/Japan/Shigeru/ShigeruJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Shigeru/ShigeruJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Shigeru/ShigeruCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V6/Japan/Tatsuya/TatsuyaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Tatsuya/Tatsuya.xml"/> <!--Tatsuya-->
+    <Include type="all" source="MANYAI/V6/Japan/Tatsuya/TatsuyaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Tatsuya/TatsuyaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V6/Japan/Tatsuya/TatsuyaCoopBasePersonality.xml"/>
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- MANY PERSONALITIES V7 -->
+
+<!-- Allied -->
+    <Include type="all" source="MANYAI/V7/Allies/Bruce/BruceBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Bruce/Bruce.xml"/> <!--Bruce-->
+    <Include type="all" source="MANYAI/V7/Allies/Bruce/BruceAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Bruce/BruceAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Bruce/BruceCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/LionHardt/LionHardtBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/LionHardt/LionHardt.xml"/> <!--LionHardt-->
+    <Include type="all" source="MANYAI/V7/Allies/LionHardt/LionHardtAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/LionHardt/LionHardtAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/LionHardt/LionHardtCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Rapier/RapierBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Rapier/Rapier.xml"/> <!--Rapier-->
+    <Include type="all" source="MANYAI/V7/Allies/Rapier/RapierAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Rapier/RapierAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Rapier/RapierCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Estoc/EstocBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Estoc/Estoc.xml"/> <!--Estoc-->
+    <Include type="all" source="MANYAI/V7/Allies/Estoc/EstocAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Estoc/EstocAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Estoc/EstocCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Dylan/DylanBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Dylan/Dylan.xml"/> <!--Dylan-->
+    <Include type="all" source="MANYAI/V7/Allies/Dylan/DylanAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Dylan/DylanAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Dylan/DylanCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Ryanne/RyanneBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Ryanne/Ryanne.xml"/> <!--Ryanne-->
+    <Include type="all" source="MANYAI/V7/Allies/Ryanne/RyanneAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Ryanne/RyanneAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Ryanne/RyanneCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Ashley/AshleyBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Ashley/Ashley.xml"/> <!--Ashley-->
+    <Include type="all" source="MANYAI/V7/Allies/Ashley/AshleyAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Ashley/AshleyAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Ashley/AshleyCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Dwayne/DwayneBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Dwayne/Dwayne.xml"/> <!--Dwayne-->
+    <Include type="all" source="MANYAI/V7/Allies/Dwayne/DwayneAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Dwayne/DwayneAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Dwayne/DwayneCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Allies/Vermont/VermontBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Vermont/Vermont.xml"/> <!--Vermont-->
+    <Include type="all" source="MANYAI/V7/Allies/Vermont/VermontAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Vermont/VermontAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Allies/Vermont/VermontCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/V7/Soviet/Vladimir/VladimirBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Vladimir/Vladimir.xml"/> <!--Vladimir-->
+    <Include type="all" source="MANYAI/V7/Soviet/Vladimir/VladimirSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Vladimir/VladimirSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Vladimir/VladimirCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Pavel/PavelBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Pavel/Pavel.xml"/> <!--Pavel-->
+    <Include type="all" source="MANYAI/V7/Soviet/Pavel/PavelSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Pavel/PavelSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Pavel/PavelCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Sabre/SabreBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Sabre/Sabre.xml"/> <!--Sabre-->
+    <Include type="all" source="MANYAI/V7/Soviet/Sabre/SabreSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Sabre/SabreSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Sabre/SabreCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Qiang/QiangBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Qiang/Qiang.xml"/> <!--Qiang-->
+    <Include type="all" source="MANYAI/V7/Soviet/Qiang/QiangSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Qiang/QiangSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Qiang/QiangCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Inga/IngaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Inga/Inga.xml"/> <!--Inga-->
+    <Include type="all" source="MANYAI/V7/Soviet/Inga/IngaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Inga/IngaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Inga/IngaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Juris/JurisBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Juris/Juris.xml"/> <!--Juris-->
+    <Include type="all" source="MANYAI/V7/Soviet/Juris/JurisSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Juris/JurisSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Juris/JurisCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Klaudijs/KlaudijsBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Klaudijs/Klaudijs.xml"/> <!--Klaudijs-->
+    <Include type="all" source="MANYAI/V7/Soviet/Klaudijs/KlaudijsSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Klaudijs/KlaudijsSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Klaudijs/KlaudijsCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Helena/HelenaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Helena/Helena.xml"/> <!--Helena-->
+    <Include type="all" source="MANYAI/V7/Soviet/Helena/HelenaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Helena/HelenaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Helena/HelenaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Soviet/Olga/OlgaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Olga/Olga.xml"/> <!--Olga-->
+    <Include type="all" source="MANYAI/V7/Soviet/Olga/OlgaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Olga/OlgaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Soviet/Olga/OlgaCoopBasePersonality.xml"/>
+
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/V7/Japan/Tatsu/TatsuBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Tatsu/Tatsu.xml"/> <!--Tatsu-->
+    <Include type="all" source="MANYAI/V7/Japan/Tatsu/TatsuJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Tatsu/TatsuJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Tatsu/TatsuCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Mitsuko/MitsukoBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Mitsuko/Mitsuko.xml"/> <!--Mitsuko-->
+    <Include type="all" source="MANYAI/V7/Japan/Mitsuko/MitsukoJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Mitsuko/MitsukoJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Mitsuko/MitsukoCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Katana/KatanaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Katana/Katana.xml"/> <!--Katana-->
+    <Include type="all" source="MANYAI/V7/Japan/Katana/KatanaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Katana/KatanaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Katana/KatanaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Wakizashi/WakizashiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Wakizashi/Wakizashi.xml"/> <!--Wakizashi-->
+    <Include type="all" source="MANYAI/V7/Japan/Wakizashi/WakizashiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Wakizashi/WakizashiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Wakizashi/WakizashiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Bishamon/BishamonBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Bishamon/Bishamon.xml"/> <!--Bishamon-->
+    <Include type="all" source="MANYAI/V7/Japan/Bishamon/BishamonJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Bishamon/BishamonJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Bishamon/BishamonCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Nagisa/NagisaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Nagisa/Nagisa.xml"/> <!--Nagisa-->
+    <Include type="all" source="MANYAI/V7/Japan/Nagisa/NagisaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Nagisa/NagisaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Nagisa/NagisaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Rin/RinBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Rin/Rin.xml"/> <!--Rin-->
+    <Include type="all" source="MANYAI/V7/Japan/Rin/RinJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Rin/RinJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Rin/RinCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Shou/ShouBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Shou/Shou.xml"/> <!--Shou-->
+    <Include type="all" source="MANYAI/V7/Japan/Shou/ShouJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Shou/ShouJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Shou/ShouCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/V7/Japan/Kazumi/KazumiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Kazumi/Kazumi.xml"/> <!--Kazumi-->
+    <Include type="all" source="MANYAI/V7/Japan/Kazumi/KazumiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Kazumi/KazumiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/V7/Japan/Kazumi/KazumiCoopBasePersonality.xml"/>
+
+<!-- NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN -->
+<!-- FLOWSTORM AI -->
+
+<!-- Allied -->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Trent/Trent.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Trent/Trent.xml"/> <!--Trent-->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Trent/TrentAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Trent/TrentAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Trent/TrentCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Morgan/Morgan.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Morgan/Morgan.xml"/> <!--Morgan-->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Morgan/MorganAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Morgan/MorganAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Morgan/MorganCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Rick/Rick.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Rick/Rick.xml"/> <!--Rick-->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Rick/RickAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Rick/RickAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Rick/RickCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Aaron/Aaron.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Aaron/Aaron.xml"/> <!--Aaron-->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Aaron/AaronAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Aaron/AaronAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Aaron/AaronCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Nevi/Nevi.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Nevi/Nevi.xml"/> <!--Nevi-->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Nevi/NeviAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Nevi/NeviAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Nevi/NeviCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Okhmhaka/Okhmhaka.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Okhmhaka/Okhmhaka.xml"/> <!--Okhmhaka-->
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Okhmhaka/OkhmhakaAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Okhmhaka/OkhmhakaAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Allies/Okhmhaka/OkhmhakaCoopBasePersonality.xml"/>
+
+<!-- Soviet -->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Maksim/MaksimBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Maksim/Maksim.xml"/> <!--Maksim-->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Maksim/MaksimSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Maksim/MaksimSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Maksim/MaksimCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Lazar/LazarBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Lazar/Lazar.xml"/> <!--Lazar-->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Lazar/LazarSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Lazar/LazarSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Lazar/LazarCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Yakov/YakovBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Yakov/Yakov.xml"/> <!--Yakov-->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Yakov/YakovSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Yakov/YakovSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Yakov/YakovCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Feliks/FeliksBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Feliks/Feliks.xml"/> <!--Feliks-->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Feliks/FeliksSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Feliks/FeliksSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Feliks/FeliksCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Luka/LukaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Luka/Luka.xml"/> <!--Luka-->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Luka/LukaSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Luka/LukaSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/Luka/LukaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/WarHammer/WarHammerBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/WarHammer/WarHammer.xml"/> <!--WarHammer-->
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/WarHammer/WarHammerSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/WarHammer/WarHammerSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Soviet/WarHammer/WarHammerCoopBasePersonality.xml"/>
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Hiroshi/HiroshiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Hiroshi/Hiroshi.xml"/> <!--Hiroshi-->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Hiroshi/HiroshiJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Hiroshi/HiroshiJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Hiroshi/HiroshiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Noboru/NoboruBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Noboru/Noboru.xml"/> <!--Noboru-->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Noboru/NoboruJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Noboru/NoboruJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Noboru/NoboruCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Sora/SoraBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Sora/Sora.xml"/> <!--Sora-->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Sora/SoraJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Sora/SoraJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Sora/SoraCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Roka/RokaBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Roka/Roka.xml"/> <!--Roka-->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Roka/RokaJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Roka/RokaJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Roka/RokaCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Minori/MinoriBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Minori/Minori.xml"/> <!--Minori-->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Minori/MinoriJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Minori/MinoriJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Minori/MinoriCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Gentaro/GentaroBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Gentaro/Gentaro.xml"/> <!--Gentaro-->
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Gentaro/GentaroJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Gentaro/GentaroJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/FlowStorm/Japan/Gentaro/GentaroCoopBasePersonality.xml"/>
+
+
+<!-- OTHER PERSONALITIES -->
+<!-- JonnysUnrivaledExecutioners -->
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Kaden/KadenBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Kaden/Kaden.xml"/> <!--Kaden-->
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Kaden/KadenAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Kaden/KadenAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Kaden/KadenCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Vikenti/VikentiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Vikenti/Vikenti.xml"/> <!--Vikenti-->
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Vikenti/VikentiSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Vikenti/VikentiSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Vikenti/VikentiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Riichirou/RiichirouBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Riichirou/Riichirou.xml"/> <!--Riichirou-->
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Riichirou/RiichirouJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Riichirou/RiichirouJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/JonnysUnrivaledExecutioners/Riichirou/RiichirouCoopBasePersonality.xml"/>
+
+<!-- TEST PERSONALITIES -->
+<!--
+    <Include type="all" source="MANYAI/TestAI/AlliesAIR/AlliesAIRBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesAIR/AlliesAIR.xml"/> 
+    <Include type="all" source="MANYAI/TestAI/AlliesAIR/AlliesAIRAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesAIR/AlliesAIRAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesAIR/AlliesAIRCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/TestAI/AlliesGROUND/AlliesGROUNDBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesGROUND/AlliesGROUND.xml"/> 
+    <Include type="all" source="MANYAI/TestAI/AlliesGROUND/AlliesGROUNDAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesGROUND/AlliesGROUNDAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesGROUND/AlliesGROUNDCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/TestAI/AlliesINFANTRY/AlliesINFANTRYBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesINFANTRY/AlliesINFANTRY.xml"/> 
+    <Include type="all" source="MANYAI/TestAI/AlliesINFANTRY/AlliesINFANTRYAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesINFANTRY/AlliesINFANTRYAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesINFANTRY/AlliesINFANTRYCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/TestAI/AlliesNAVY/AlliesNAVYBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesNAVY/AlliesNAVY.xml"/> 
+    <Include type="all" source="MANYAI/TestAI/AlliesNAVY/AlliesNAVYAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesNAVY/AlliesNAVYAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TestAI/AlliesNAVY/AlliesNAVYCoopBasePersonality.xml"/>
+-->
+
+
+<!-- PRO PERSONALITIES -->
+
+<!-- Allies -->
+    <Include type="all" source="MANYAI/ProAI/WalfTheWolf/WalfTheWolfBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/WalfTheWolf/WalfTheWolf.xml"/> <!--WalfTheWolf-->
+    <Include type="all" source="MANYAI/ProAI/WalfTheWolf/WalfTheWolfAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/WalfTheWolf/WalfTheWolfAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/WalfTheWolf/WalfTheWolfCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/yuiyui/yuiyuiBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/yuiyui/yuiyui.xml"/> <!--yuiyui-->
+    <Include type="all" source="MANYAI/ProAI/yuiyui/yuiyuiAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/yuiyui/yuiyuiAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/yuiyui/yuiyuiCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/Zokker13/Zokker13BasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Zokker13/Zokker13.xml"/> <!--Zokker13-->
+    <Include type="all" source="MANYAI/ProAI/Zokker13/Zokker13AlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Zokker13/Zokker13AlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Zokker13/Zokker13CoopBasePersonality.xml"/>
+
+<!-- Soviets -->    
+    <Include type="all" source="MANYAI/ProAI/Tingu/TinguBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Tingu/Tingu.xml"/> <!--Tingu-->
+    <Include type="all" source="MANYAI/ProAI/Tingu/TinguSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Tingu/TinguSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Tingu/TinguCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/Dankal/DankalBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Dankal/Dankal.xml"/> <!--Dankal-->
+    <Include type="all" source="MANYAI/ProAI/Dankal/DankalSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Dankal/DankalSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Dankal/DankalCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/Kivi/KiviBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Kivi/Kivi.xml"/> <!--Kivi-->
+    <Include type="all" source="MANYAI/ProAI/Kivi/KiviSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Kivi/KiviSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Kivi/KiviCoopBasePersonality.xml"/>
+
+<!-- Japan -->
+    <Include type="all" source="MANYAI/ProAI/JuJu/JuJuBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/JuJu/JuJu.xml"/> <!--JuJu-->
+    <Include type="all" source="MANYAI/ProAI/JuJu/JuJuJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/JuJu/JuJuJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/JuJu/JuJuCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/o-80/o-80BasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/o-80/o-80.xml"/> <!--o-80-->
+    <Include type="all" source="MANYAI/ProAI/o-80/o-80JapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/o-80/o-80JapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/o-80/o-80CoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/Eminence/EminenceBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Eminence/Eminence.xml"/> <!--Eminence-->
+    <Include type="all" source="MANYAI/ProAI/Eminence/EminenceJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Eminence/EminenceJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/Eminence/EminenceCoopBasePersonality.xml"/>
+
+<!-- JuJuSquad -->
+    <Include type="all" source="MANYAI/TeamJuJu/IamFed/IamFedBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/IamFed/IamFed.xml"/> <!--IamFed-->
+    <Include type="all" source="MANYAI/TeamJuJu/IamFed/IamFedJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/IamFed/IamFedJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/IamFed/IamFedCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/TeamJuJu/iAmStronk/iAmStronkBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/iAmStronk/iAmStronk.xml"/> <!--iAmStronk-->
+    <Include type="all" source="MANYAI/TeamJuJu/iAmStronk/iAmStronkAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/iAmStronk/iAmStronkAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/iAmStronk/iAmStronkCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/TeamJuJu/JuJuOP/JuJuOPBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/JuJuOP/JuJuOP.xml"/> <!--JuJuOP-->
+    <Include type="all" source="MANYAI/TeamJuJu/JuJuOP/JuJuOPSovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/JuJuOP/JuJuOPSovietCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/TeamJuJu/JuJuOP/JuJuOPCoopBasePersonality.xml"/>
+
+<!--
+    <Include type="all" source="OtherAI/Masaru/MasaruBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/Masaru/Masaru.xml"/> 
+    <Include type="all" source="OtherAI/Masaru/MasaruJapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="OtherAI/Masaru/MasaruJapanCoopBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/Masaru/MasaruCoopBasePersonality.xml"/>
+
+    <Include type="all" source="OtherAI/Tyson/TysonBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/Tyson/Tyson.xml"/> 
+    <Include type="all" source="OtherAI/Tyson/TysonAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="OtherAI/Tyson/TysonAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/Tyson/TysonCoopBasePersonality.xml"/>
+
+    <Include type="all" source="MANYAI/ProAI/JuJu1/JuJu1BasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/JuJu1/JuJu1.xml"/> 
+    <Include type="all" source="MANYAI/ProAI/JuJu1/JuJu1JapanCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/JuJu1/JuJu1JapanCoopBasePersonality.xml"/>
+    <Include type="all" source="MANYAI/ProAI/JuJu1/JuJu1CoopBasePersonality.xml"/>
+
+    <Include type="all" source="OtherAI/ChampionKaden/ChampionKadenBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/ChampionKaden/ChampionKaden.xml"/> 
+    <Include type="all" source="OtherAI/ChampionKaden/ChampionKadenAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="OtherAI/ChampionKaden/ChampionKadenAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/ChampionKaden/ChampionKadenCoopBasePersonality.xml"/>
+-->
+
+
+
+    <Include type="all" source="OtherAI/Sander/SanderBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/Sander/Sander.xml"/> 
+    <Include type="all" source="OtherAI/Sander/SanderAlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="OtherAI/Sander/SanderAlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="OtherAI/Sander/SanderCoopBasePersonality.xml"/>
+
+
+    <!-- Coop Personalities -->
+    <Include type="all" source="CoopBasePersonality.xml"/>
+
+    <Include type="all" source="AlliedCoopBasePersonality.xml"/>
+    <Include type="all" source="SovietCoopBasePersonality.xml"/>
+    <Include type="all" source="JapanCoopBasePersonality.xml"/>
+
+    <Include type="all" source="AlliedCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="SovietCoopBaseSkirmishPersonality.xml"/>
+    <Include type="all" source="JapanCoopBaseSkirmishPersonality.xml"/>
+
+    <Include type="all" source="AlliedCoopBaseCampaignPersonality.xml"/>
+    <Include type="all" source="SovietCoopBaseCampaignPersonality.xml"/>
+    <Include type="all" source="JapanCoopBaseCampaignPersonality.xml"/>
+
+    <Include type="all" source="AlliedBalanced.xml"/> <!-- Warren -->
+    <Include type="all" source="AlliedSquadronLeader.xml"/> <!-- Giles -->
+    <Include type="all" source="AlliedSpecialForces.xml"/> <!-- Lissette -->
+    
+    <Include type="all" source="SovietBalanced.xml"/> <!-- Oleg -->
+    <Include type="all" source="SovietShockSpecialist.xml"/>
+    <Include type="all" source="SovietAirMarshall.xml"/> <!-- Zhana -->
+    
+    <Include type="all" source="JapanBalanced.xml"/> <!-- Shinzo -->
+    <Include type="all" source="JapanMechaWarfare.xml"/> <!-- Kenji -->
+    <Include type="all" source="JapanFleetCommand.xml"/> <!-- Naomi -->
+
+    <Include type="all" source="TestPersonalities.xml"/>
+
+    <!-- Solo Personalities -->
+
+    <Include type="all" source="SoloBasePersonality.xml"/>
+
+    <Include type="all" source="AlliedSoloBasePersonality.xml"/>
+    <Include type="all" source="SovietSoloBasePersonality.xml"/>
+    <Include type="all" source="JapanSoloBasePersonality.xml"/>
+    
+    <!-- Tutorial 06 - Smith -->
+    <Include type="all" source="AIP_T06_Coop.xml"/>
+    <!-- Coop -->
+
+  </Includes>
+</AssetDeclaration>

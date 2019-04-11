@@ -1,0 +1,337 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+  <!--Offensive States-->
+  <AIStrategicStateDefinition id="Sander_InfantryAttack" MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic />
+      <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToGroundHarvesterHeuristic" Priority="30" />
+    <TargetHeuristic TargetHeuristic="SafestToGroundPowerPlantHeuristic" Priority="20" />
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10" />
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RETURN_HOME_AND_DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="18" MaxUnits="38" MinPowerAdvantage="0.4" IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND" Priority="STANDARD" AlwaysRecruit="false" MicroManager="TankRushMicroManager"></TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_TankRush" MaxTargets="3">
+    <Heuristic>
+      <ConstantHeuristic />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToGroundHarvesterHeuristic" Priority="30" />
+    <TargetHeuristic TargetHeuristic="SafestToGroundPowerPlantHeuristic" Priority="20" />
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10" />
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="12" MaxUnits="22" MinPowerAdvantage="0.5" IncludeKindOf="CAN_ATTACK VEHICLE" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND AMPHIBIOUS" Priority="STANDARD" AlwaysRecruit="false" MicroManager="TankRushMicroManager">
+        <ObjectFilter Rule="ALL">
+          <ExcludeThing>AlliedAntiAirVehicleTech1</ExcludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_NavalAttack" MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="SafestToWaterHarvesterHeuristic" Priority="30" />
+    <TargetHeuristic TargetHeuristic="SafestToWaterUnitHeuristic" Priority="20" />
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristicAllEnemies" Priority="20" />
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="7" MaxUnits="18" MinPowerAdvantage="0.3" IncludeKindOf="CAN_ATTACK VEHICLE" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="WATER AMPHIBIOUS" Priority="STANDARD" AlwaysRecruit="false" MicroManager="TankRushMicroManager"></TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_DestroyerHarassement" MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+      <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      <TimerHeuristic StartTime="150s" EndTime="275s" CountFrom="AI_START" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="EnemyRefineryHeuristic_WATER" Priority="30" />
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="20" />
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10" />
+    <Tactic id="Attack" Tactic="DefenseAvoidanceAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="3" MaxUnits="3" MinPowerAdvantage="0.0" IncludeKindOf="CAN_ATTACK VEHICLE" ExcludeKindOf="INFANTRY AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="AMPHIBIOUS" Priority="STANDARD" AlwaysRecruit="false" MicroManager="AssaultDestroyerMicroManager">
+        <CreateUnits UnitName="AlliedAntiNavyShipTech1" MinUnits="3" MaxUnits="3"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_CarrierBombardment" MaxTargets="1">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>AlliedNavalYard</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestEnemyConyardHeuristic" Priority="30" />
+    <TargetHeuristic TargetHeuristic="SafestToWaterStructureHeuristic" Priority="20" />
+    <TargetHeuristic TargetHeuristic="SafestToGroundStructureHeuristic" Priority="10" />
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RAMPAGE" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="3" MaxUnits="3" MinPowerAdvantage="0.6" IncludeKindOf="CAN_ATTACK VEHICLE" ExcludeKindOf="INFANTRY AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="WATER" Priority="LOW" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" MicroManager="BombardmentShipMicroManager">
+        <CreateUnits UnitName="AlliedAntiStructureShip" MinUnits="3" MaxUnits="3"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_HydrofoilHarassement" MaxTargets="3">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="ENEMIES">
+          <IncludeThing>SovietBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestBomberAircraftHeuristic" Priority="50"></TargetHeuristic>
+    <TargetHeuristic TargetHeuristic="ClosestAircraftHeuristic" Priority="40"></TargetHeuristic>
+    <TargetHeuristic TargetHeuristic="ClosestUnitHeuristic" Priority="30" />
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="3" MaxUnits="6" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="WATER" Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="true" MicroManager="TankRushMicroManager">
+        <CreateUnits UnitName="AlliedAntiAirShip" MinUnits="2" MaxUnits="3"></CreateUnits>
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiAirShip</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="VindicatorController_Beginning" MaxTargets="99">
+    <Heuristic>
+      <TimerHeuristic StartTime="0s" EndTime="230s" CountFrom="AI_START"></TimerHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="EnemyTerrorDroneHeuristic" Priority="50"></TargetHeuristic>
+    <TargetHeuristic TargetHeuristic="EnemyGroundVehicleHeuristic" Priority="40"></TargetHeuristic>
+    <TargetHeuristic TargetHeuristic="EnemyFactoryHeuristic" Priority="30" />
+    <Tactic id="Attack" Tactic="SimpleAttack" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="AIR" Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="true" MicroManager="VindicatorMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedAntiGroundAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <!--Defensive States-->
+  <AIStrategicStateDefinition id="Sander_RefineryDefense" MaxTargets="0">
+    <Heuristic>
+      <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>AlliedWarFactory</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyRefineryHeuristic_LAND" Priority="50" />
+    <Tactic id="Defense" Tactic="StaticDefense" Distance="75" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="1" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND" Priority="HIGH" AlwaysRecruit="false" MicroManager="SanderDefendRefineriesMicroManager">
+        <CreateUnits UnitName="AlliedAntiVehicleVehicleTech3" MinUnits="1" MaxUnits="1" xmlns="uri:ea.com:eala:asset"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="SanderIsland_RefineryDefense" MaxTargets="0">
+    <Heuristic>
+      <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>AlliedWarFactory</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyRefineryHeuristic_LAND" Priority="50" />
+    <Tactic id="Defend" Tactic="StaticDefense" EndBehavior="RETURN_HOME_AND_DISBAND" DisbandAfterRetreatTeamSize="999" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="4" MaxUnits="4" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND" Priority="HIGH" AlwaysRecruit="false" MicroManager="SanderDefendRefineriesMicroManager">
+        <CreateUnits UnitName="AlliedAntiAirVehicleTech1" MinUnits="1" MaxUnits="1"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiStructureVehicle" MinUnits="2" MaxUnits="2"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiVehicleVehicleTech3" MinUnits="1" MaxUnits="1"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_CarrierDefense_ALLIES" MaxTargets="2">
+    <Heuristic>
+      <ConstantHeuristic />
+      <!--<ObjectOfTypeExistsHeuristic PassIfExists="true" xmlns="uri:ea.com:eala:asset"><ObjectFilter Rule="ANY" Relationship="ALLIES"><IncludeThing>AlliedAntiStructureShip</IncludeThing><IncludeThing>SovietAntiStructureShip</IncludeThing><IncludeThing>JapanAntiStructureShip</IncludeThing></ObjectFilter></ObjectOfTypeExistsHeuristic>-->
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestFriendlyWaterSiegeUnitHeuristic" Priority="50" />
+    <Tactic id="Attack" Tactic="StaticDefense" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="5" MaxUnits="5" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="WATER" Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="true" MicroManager="SanderDefendRefineriesMicroManager">
+        <CreateUnits UnitName="AlliedAntiAirShip" MinUnits="2" MaxUnits="2"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiNavalScout" MinUnits="3" MaxUnits="3"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_CarrierDefense_OWN" MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>AlliedAntiStructureShip</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestOwnWaterSiegeUnitHeuristic" Priority="50" />
+    <Tactic id="Attack" Tactic="StaticDefense" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="6" MaxUnits="6" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="AIR WATER" Priority="HIGH" AlwaysRecruit="true" MicroManager="SanderDefendRefineriesMicroManager">
+        <CreateUnits UnitName="AlliedSupportAircraft" MinUnits="2" MaxUnits="2"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiAirShip" MinUnits="1" MaxUnits="1"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiNavalScout" MinUnits="3" MaxUnits="3"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_BomberDefense_ALLIES" MaxTargets="2">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="ALLIES">
+          <IncludeThing>AlliedBomberAircraft</IncludeThing>
+          <IncludeThing>SovietBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestFriendlyBomberAircraftHeuristic_InAir" Priority="50" />
+    <Tactic id="Attack" Tactic="StaticDefense" Distance="275" EndBehavior="RAMPAGE" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="1" MaxUnits="2" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="AIR" Priority="STANDARD" AlwaysRecruit="true" MicroManager="FighterAircraftMicroManager">
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedFighterAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="Sander_MoneyTechDefense" MaxTargets="1">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>OilDerrick</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>AlliedWarFactory</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="FriendlyMoneyTechHeuristic_LAND" Priority="50" />
+    <Tactic id="Attack" Tactic="StaticDefense" EndBehavior="RETURN_HOME_AND_DISBAND" UseAestheticsManager="false">
+      <TeamTemplate MinUnits="6" MaxUnits="6" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND AMPHIBIOUS" Priority="HIGH" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" MicroManager="SanderDefendRefineriesMicroManager">
+        <CreateUnits UnitName="AlliedAntiVehicleVehicleTech1" MinUnits="2" MaxUnits="2"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiAirVehicleTech1" MinUnits="2" MaxUnits="2"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiInfantryVehicle" MinUnits="2" MaxUnits="2"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <!--Capture States-->
+  <AIStrategicStateDefinition id="SanderCaptureTech_OnFoot" MaxTargets="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="0s" EndTime="160s" CountFrom="AI_START" />
+      <EnemyNearbyHeuristic Distance="350.0" EnemyNearby="false" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestMoneyTechHeuristic" Priority="50" />
+    <TargetHeuristic TargetHeuristic="ClosestTechBuildingHeuristic" Priority="40" />
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="1" MaxUnits="3" MinPowerAdvantage="0.0" RegisteredObjectSet="INFANTRY" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER VEHICLE" AllowedLocomotorTypes="LAND" Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="true" MicroManager="SanderCaptureTechMicroManager">
+        <CreateUnits UnitName="AlliedEngineer" MinUnits="1" MaxUnits="1" />
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="SanderCaptureTech_Water" MaxTargets="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="200s" EndTime="-1s" CountFrom="AI_START" />
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="ENEMIES NEUTRAL">
+          <IncludeThing>ShipYardTechStructure</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestTechBuildingHeuristic_WATER" Priority="50" />
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="1" MaxUnits="1" MinPowerAdvantage="0.2" RegisteredObjectSet="INFANTRY" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER VEHICLE" AllowedLocomotorTypes="LAND" Priority="STANDARD" ReleaseType="NEVER_RELEASE" AlwaysRecruit="false" MicroManager="SanderCaptureTechMicroManager">
+        <CreateUnits UnitName="AlliedEngineer" MinUnits="1" MaxUnits="1" />
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="SanderCaptureTech" MaxTargets="1">
+    <Heuristic>
+      <ObjectOfTypeExistsHeuristic PassIfExists="true">
+        <ObjectFilter Rule="ANY" Relationship="SAME_PLAYER">
+          <IncludeThing>AlliedWarFactory</IncludeThing>
+          <IncludeThing>AlliedNavalYard</IncludeThing>
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestMoneyTechHeuristic_LAND" Priority="10" />
+    <TargetHeuristic TargetHeuristic="ClosestTechBuildingHeuristic" Priority="5" />
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="RETURN_HOME_AND_DISBAND" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="4" MaxUnits="6" MinPowerAdvantage="0.1" RegisteredObjectSet="INFANTRY" IncludeKindOf="CAN_ATTACK INFANTRY" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND AMPHIBIOUS" Priority="HIGH" AlwaysRecruit="false" MicroManager="FearlessCaptureTechMicroManager" ReleaseType="NEVER_RELEASE">
+        <CreateUnits UnitName="AlliedEngineer" MinUnits="1" MaxUnits="1"></CreateUnits>
+        <CreateUnits UnitName="AlliedAntiInfantryVehicle" MinUnits="1" MaxUnits="1"></CreateUnits>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <AIStrategicStateDefinition id="SanderCaptureTech_AirDrop" MaxTargets="1">
+    <Heuristic>
+      <TimerHeuristic StartTime="380s" EndTime="-1s" CountFrom="AI_START" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ClosestVeterancyTechHeuristic" Priority="15" />
+    <TargetHeuristic TargetHeuristic="ClosestMoneyTechHeuristic" Priority="10" />
+    <TargetHeuristic TargetHeuristic="ClosestTechBuildingHeuristic" Priority="5"></TargetHeuristic>
+    <Tactic id="Engineer" Tactic="Engineer" EndBehavior="DISBAND" DisbandAfterRetreatTeamSize="1">
+      <TeamTemplate MinUnits="2" MaxUnits="2" MinPowerAdvantage="1.0" RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="IGNORES_SELECT_ALL HARVESTER" AllowedLocomotorTypes="LAND AMPHIBIOUS AIR" Priority="HIGH" AlwaysRecruit="false" MicroManager="FearlessCaptureTechMicroManager" ReleaseType="NEVER_RELEASE">
+        <CreateUnits UnitName="AlliedEngineer" MinUnits="1" MaxUnits="1"></CreateUnits>
+        <ObjectFilter Rule="ANY">
+          <IncludeThing>AlliedBomberAircraft</IncludeThing>
+        </ObjectFilter>
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <!--Expansion States-->
+  <AIStrategicStateDefinition id="SanderExpansion_BRUTAL">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+      <TimeSinceLastExpansionHeuristic Time="40s" />
+      <IsBuildingHeuristic KindOf="FS_TECHNOLOGY SUPER_WEAPON" PassIfBuilding="false" />
+      <EnemyNearbyHeuristic Distance="200.0" EnemyNearby="false" />
+    </Heuristic>
+    <TargetHeuristic TargetHeuristic="ExpansionHeuristic" />
+    <Tactic id="Expand" Tactic="SimpleExpansion" Distance="300">
+      <TeamTemplate MinUnits="1" MaxUnits="6" MinPowerAdvantage="0.15" RegisteredObjectSet="SKIRMISH_AI_NORMAL_COMBAT_UNITS" IncludeKindOf="CAN_ATTACK" ExcludeKindOf="AIRCRAFT SIEGE_WEAPON IGNORES_SELECT_ALL HARVESTER" Priority="HIGH" ReleaseType="RELEASE_TO_PRIORITY" AlwaysRecruit="false" MicroManager="ExpansionMicroManager">
+        <CreateUnits UnitName="AlliedMiner" MinUnits="1" MaxUnits="1" />
+      </TeamTemplate>
+    </Tactic>
+  </AIStrategicStateDefinition>
+  <!--Build States-->
+  <AIBuildStateDefinition id="SanderTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+      <PowerAdvantageHeuristic Value="0.9" Above="true" IncludeOwnDefenses="false" IncludeEnemyDefenses="false" />
+    </Heuristic>
+    <BuildEntry Build="AlliedAirfield" Heuristic="TECH" MinTime="200s" ForceTime="250s" />
+    <BuildEntry Upgrade="Upgrade_AlliedTech2" Heuristic="UPGRADE_TECH" MinTime="180s" />
+    <BuildEntry Upgrade="Upgrade_AlliedTech3" Heuristic="UPGRADE_TECH" MinTime="260s" />
+    <BuildEntry Build="AlliedTechStructure" Heuristic="TECH" MinTime="340s" />
+    <!--Chronosphere can now be built =)
+    -->
+    <BuildEntry Build="AlliedSuperWeapon" Heuristic="TECH" MinTime="420s" />
+    <BuildEntry Build="AlliedSuperWeaponAdvanced" Heuristic="TECH" MinTime="370s" ForceTime="370s" />
+  </AIBuildStateDefinition>
+  <AIBuildStateDefinition id="SanderNavalYardBuild">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+    </Heuristic>
+    <BuildEntry Build="AlliedNavalYard" Heuristic="FACTORY" MinTime="280s" ForceTime="320s"></BuildEntry>
+  </AIBuildStateDefinition>
+  <AIBuildStateDefinition id="SanderFactorySpam_NonIsland">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+      <MoneyHeuristic Money="4000" Above="true" />
+      <TimerHeuristic StartTime="360s" EndTime="-1s" CountFrom="AI_START" />
+      <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="AlliedAirfield" Heuristic="BUILD_TEST"></BuildEntry>
+    <BuildEntry Build="AlliedWarFactory" Heuristic="BUILD_TEST"></BuildEntry>
+  </AIBuildStateDefinition>
+  <AIBuildStateDefinition id="SanderFactorySpam_Island">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true" />
+      <MoneyHeuristic Money="4000" Above="true" />
+      <TimerHeuristic StartTime="360s" EndTime="-1s" CountFrom="AI_START" />
+      <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="AlliedAirfield" Heuristic="BUILD_TEST"></BuildEntry>
+    <BuildEntry Build="AlliedNavalYard" Heuristic="BUILD_TEST"></BuildEntry>
+  </AIBuildStateDefinition>
+</AssetDeclaration>

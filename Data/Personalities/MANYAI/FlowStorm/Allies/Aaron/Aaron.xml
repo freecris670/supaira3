@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="AaronAlliedCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Aaron"
+		PersonalityType="Aaron"
+		inheritFrom="AaronAlliedCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Aaron"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="AlliedStandard_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    <OpeningMove Name="AlliedIsland_EASY" Weight="100%" Difficulty="EASY">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AlliedStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AlliedIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="AB_TripleRaxStart" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+    <OpeningMove Name="A_Island_Naval" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <!-- Easy to swap STATES -->
+
+    <!-- FLOWSTORM ATTACK STATES -->
+		<StrategicState id="ATTACK_FLOW" State="ATTACK_FLOW" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="ATTACK_STORM" State="ATTACK_STORM" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="FLOWSTORMATTACK" State="FLOWSTORMATTACK" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="ATTACK_STORM_LATESTAGE" State="ATTACK_STORM_LATESTAGE" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="Water_SimpleAttack_2to20_NavalAttackMicro" State="Water_SimpleAttack_2to20_NavalAttackMicro" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- ATTACK AT 10 STATE -->
+		<StrategicState id="FS_Avoid_5to10_SuicideMicro" State="FS_Avoid_5to10_SuicideMicro" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+        <!-- FLOWSTORM STATES -->
+		<StrategicState id="FlowStormGuardians" State="FlowStormGuardians" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="FlowStormReactiveDefense" State="FlowStormReactiveDefense" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- TECH STATES -->
+    <BuildState id="SlowAlliedTechBuildState" State="SlowAlliedTechBuildState" Difficulty="HARD BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="SuperiorAlliedExpand" State="SuperiorAlliedExpand" Difficulty="HARD"/>
+    <StrategicState id="SuperiorAlliedExpandFaster" State="SuperiorAlliedExpandFaster" Difficulty="HARD"/>
+
+    <StrategicState id="SuperiorBrutalAlliedExpand" State="SuperiorBrutalAlliedExpand" Difficulty="BRUTAL"/>
+    <StrategicState id="SuperiorBrutalAlliedExpandFaster" State="SuperiorBrutalAlliedExpandFaster" Difficulty="BRUTAL"/>
+
+
+    <!-- BRUTAL BUILD STATES -->
+    <BuildState id="ZokkerBrutalAlliedBarracksSpam" State="ZokkerBrutalAlliedBarracksSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorINFINITEBrutalAlliedWarfactorySpam" State="SuperiorINFINITEBrutalAlliedWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedNavalYardSpam" State="SuperiorINFINITEBrutalAlliedNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedAirfieldSpam" State="SuperiorINFINITEBrutalAlliedAirfieldSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalAlliedBarracksSpam" State="SuperiorINFINITEBrutalAlliedBarracksSpam" Difficulty="BRUTAL"/>
+
+
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+    <!-- TEAM WORK STATES -->
+<!--
+    <StrategicState id="SuperiorDefendAllyAircraft" State="SuperiorDefendAllyAircraft" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorAlliesDefendAllyOnLand" State="SuperiorAlliesDefendAllyOnLand" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorAlliesDefendAllyOnWater" State="SuperiorAlliesDefendAllyOnWater" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSupportAllyAttack" State="SuperiorSupportAllyAttack" Difficulty="HARD BRUTAL"/>
+-->
+
+    <!-- SPECIAL STATES -->
+    <StrategicState id="SuperiorAlliedRiptideJavelinDrop" State="SuperiorAlliedRiptideJavelinDrop" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorComplexityEngineerIFV" State="SuperiorComplexityEngineerIFV" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorComplexityInfantryDrop" State="SuperiorComplexityInfantryDrop" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="ParanoiaDoubleRiptideDrop" State="ParanoiaDoubleRiptideDrop" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorComplexityAirDrop" State="SuperiorComplexityAirDrop" Difficulty="HARD BRUTAL"/>
+
+    <!-- Unit Preferences -->
+    <UnitModifier Unit="AlliedAntiInfantryVehicle" OffensiveModifier="17.6" DefensiveModifier="17.1"/>
+    <UnitModifier Unit="AlliedAntiInfantryVehicle_Ground" OffensiveModifier="15.0" DefensiveModifier="15.0"/>
+    <UnitModifier Unit="AlliedAntiInfantryInfantry" OffensiveModifier="65.2" DefensiveModifier="65.2"/>
+    <UnitModifier Unit="AlliedAntiVehicleInfantry" OffensiveModifier="49.9" DefensiveModifier="49.6"/>
+    <UnitModifier Unit="AlliedCommandoTech1" OffensiveModifier="999.0" DefensiveModifier="999.0"/> 
+
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Allied_AirPower" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank1" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank2" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Allied_CryoSatellite_Rank3" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_ProductionBonus_Allies" Weight="999999%"/>
+
+
+	</AIPersonalityDefinition>
+  
+</AssetDeclaration>

@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+  
+  <!-- Allied Build Time and Cost as of 05.02.08 -->
+  <!-- AlliedPowerPlant = 10  seconds Cost = 800  -->
+  <!-- AlliedBarracks   = 10  seconds Cost = 500  -->
+  <!-- AlliedRefinery   = 20 seconds Cost = 2000 -->
+  <!-- AlliedWarFactory = 20 seconds Cost = 2000 -->
+  <!-- AlliedNavalYard  = 20 seconds Cost = 2000 -->
+  <!-- AlliedTech2      = 15 seconds Cost = 1000 -->
+  <!-- AlliedAirfield   = 15 seconds Cost = 1000 -->
+  
+  <SkirmishOpeningMove
+    id="AggroAlliedStandard1"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="AlliedBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="90s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroBrutalAlliedStandard1"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="AlliedBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="65s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="Upgrade_AlliedTech2" />
+    <Order Time="105s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroAlliedStandard2"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="2800" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="90s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroBrutalAlliedStandard2"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="2800" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="100s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroAlliedIslandMEDIUM"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedNavalYard" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="900" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="80s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroAlliedIsland"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedNavalYard" />
+    <Order Build="AlliedAntiNavalScout" />
+    <Order Build="AlliedAntiNavalScout" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="900" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="95s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AggroBrutalAlliedIsland"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedNavalYard" />
+    <Order Time="45s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedNavalYard" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="110s" />
+  </SkirmishOpeningMove>
+  
+</AssetDeclaration>

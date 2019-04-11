@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="2MoskvinBrutalSovietWarfactorySpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="3500" Above="true" />
+      <IntervalHeuristic IntervalTime="60s" ActiveTime="40s" CountFrom="AI_START"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true"
+        Location="Land">
+        <ObjectFilter
+          Relationship="ENEMIES"
+          Rule="ALL" >
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="SovietWarfactory" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="SuperiorMoskvinINFINITEBrutalSovietWarfactorySpam">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <MoneyHeuristic Money="50000" Above="true" />
+      <IntervalHeuristic IntervalTime="20s" ActiveTime="70s" CountFrom="AI_START"/>
+      <ObjectOfTypeExistsHeuristic
+        PassIfExists="true"
+        Location="Land">
+        <ObjectFilter
+          Relationship="ENEMIES"
+          Rule="ALL" >
+        </ObjectFilter>
+      </ObjectOfTypeExistsHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="SovietWarfactory" Heuristic="BUILD_TEST"/>
+    <BuildEntry Build="SovietTechStructure" Heuristic="TECH"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

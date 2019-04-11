@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+
+  <AIBuildStateDefinition
+    id="4AggroBrutalSovietBarracksSpam">
+    <Heuristic>
+      <TimerHeuristic StartTime="225s" EndTime="-1s" CountFrom="AI_START"/>
+      <IntervalHeuristic IntervalTime="80s" ActiveTime="30s" CountFrom="AI_START"/>
+      <MoneyHeuristic Money="5000" Above="true" />
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="2000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+      <PathToTargetHeuristic Surface="Land" PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+    </Heuristic>
+    <BuildEntry Build="SovietBarracks" Heuristic="BUILD_TEST"/>
+  </AIBuildStateDefinition>
+
+  <AIBuildStateDefinition
+    id="4AggroBrutalSovietTechBuildState">
+    <Heuristic>
+      <OpeningMoveHeuristic Complete="true"/>
+      <EnemyNearbyHeuristic Distance="700.0" EnemyNearby="false" MinEnemyValue="6000">
+        <EnemyFilter
+          Relationship="ENEMIES"
+          Rule="ANY"
+          Include="CAN_ATTACK ENGINEER INFILTRATOR">
+        </EnemyFilter>
+      </EnemyNearbyHeuristic>
+    </Heuristic>
+    <BuildEntry Build="SovietPowerPlantAdvanced" Heuristic="TECH" MinTime="130s"/>
+    <BuildEntry Build="SovietTechStructure" Heuristic="TECH" MinTime="500s"/>
+    <BuildEntry Build="SovietSuperWeapon" Heuristic="TECH" MinTime="550s"/>
+    <BuildEntry Build="SovietSuperWeaponAdvanced" Heuristic="TECH" MinTime="600s"/>
+  </AIBuildStateDefinition>
+
+</AssetDeclaration>

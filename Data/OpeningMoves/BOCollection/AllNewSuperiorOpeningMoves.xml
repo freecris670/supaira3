@@ -1,0 +1,634 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  <Includes></Includes>
+  
+  <!-- Allied Build Time and Cost as of 05.02.08 -->
+  <!-- AlliedPowerPlant = 10  seconds Cost = 800  -->
+  <!-- AlliedBarracks   = 10  seconds Cost = 500  -->
+  <!-- AlliedRefinery   = 20 seconds Cost = 2000 -->
+  <!-- AlliedWarFactory = 20 seconds Cost = 2000 -->
+  <!-- AlliedNavalYard  = 20 seconds Cost = 2000 -->
+  <!-- AlliedTech2      = 15 seconds Cost = 1000 -->
+  <!-- AlliedAirfield   = 15 seconds Cost = 1000 -->
+
+  <!-- SovietPowerPlant = 10  seconds -->
+  <!-- SovietBarracks   = 10  seconds -->
+  <!-- SovietRefinery   = 20 seconds -->
+  <!-- SovietWarFactory = 20 seconds -->
+  <!-- SovietPowerPlantAdvanced = 30 seconds -->
+  <!-- SovietAirfield   = 30 seconds -->
+  <!-- SovietTechStructure = 40 seconds -->
+  <!-- SovietNavalYard = 20 seconds -->
+  
+  <SkirmishOpeningMove
+    id="SB_Rax_Warfactory_BattleLabRush"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="120s" />
+    <Order Build="SovietTechStructure" />
+    <Order Time="140s" Account="PRODUCTION" Deposit="3200" />
+    <Order Time="170s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_Rax_Warfactory_BattleLabRush_AirfieldEnd"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="120s" />
+    <Order Build="SovietTechStructure" />
+    <Order Time="140s" Account="PRODUCTION" Deposit="3200" />
+    <Order Time="160s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Build="SovietAirfield" />
+    <Order Time="190s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_Rax_Warfactory_BattleLabRush_AirfieldKirovEnd"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="120s" />
+    <Order Build="SovietTechStructure" />
+    <Order Time="140s" Account="PRODUCTION" Deposit="3200" />
+    <Order Time="160s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Build="SovietAirfield" />
+    <Order Time="180s" />
+    <Order Build="SovietBomberAircraft" />
+    <Order Time="200s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="S_Rax_Warfactory_Naval"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1500" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="SovietNavalYard" />
+    <Order Time="115s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_Rax_Warfactory_Naval"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietNavalYard" />
+    <Order Time="115s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="S_DualRax"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="SovietBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="1400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Time="93s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_TripleRax"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1500" />
+    <Order Build="SovietBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietBarracks" />
+    <Order Time="93s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_FastWarfactory"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="4000" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Time="80s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_ShogunRush"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Build="JapanBaseDefenseEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="40s" Account="PRODUCTION" Deposit="600" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="900" />
+    <Order Build="Upgrade_JapanNavalYardTech2" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="500" />
+    <Order Build="JapanTechStructureEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="500" />
+    <Order Build="JapanBaseDefenseEgg" />
+    <Order Build="Upgrade_JapanNavalYardTech3" />
+    <Order Time="100s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanAntiStructureShip" />
+    <Order Time="165s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_ShogunRush_Island"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Build="JapanBaseDefenseEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="40s" Account="PRODUCTION" Deposit="600" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="900" />
+    <Order Build="Upgrade_JapanNavalYardTech2" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="500" />
+    <Order Build="JapanTechStructureEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="500" />
+    <Order Build="JapanBaseDefenseEgg" />
+    <Order Build="Upgrade_JapanNavalYardTech3" />
+    <Order Time="100s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanAntiStructureShip" />
+    <Order Time="165s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="J_TripleRax_MechaEnd"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="35s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="1700"  />
+    <Order Time="60s" Build="JapanWarfactoryEgg" />
+    <Order Time="110s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_TripleRax_MechaEnd"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="35s" Account="PRODUCTION" Deposit="3300" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="4400"  />
+    <Order Time="60s" Build="JapanWarfactoryEgg" />
+    <Order Time="90s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="J_Rax_Ny_MechaEnd"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Build="JapanWarfactoryEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="40s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="75s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_Rax_Ny_MechaEnd"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Build="JapanWarfactoryEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="40s" Account="PRODUCTION" Deposit="2000" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2000" />
+    <Order Time="65s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_RaxStart"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="3400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="70s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_ProStandardAirStart_T2CryoEnd"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="75s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="Upgrade_AlliedTech2" />
+    <Order Build="AlliedSupportAircraft" />
+    <Order Time="125s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="A_ProStandardAirStart_3Apollo1Vindi"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1500" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Build="AlliedAntiGroundAircraft" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="105s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_ProStandardAirStart_3Apollo1Vindi"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Build="AlliedAntiGroundAircraft" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="105s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_ProStandardAirStart_T2End"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="75s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="Upgrade_AlliedTech2" />
+    <Order Time="125s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="J_TripleRax_NavalEnd"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="35s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="1700"  />
+    <Order Time="60s" Build="JapanNavalYardEgg" />
+    <Order Time="110s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_TripleRax_NavalEnd"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="35s" Account="PRODUCTION" Deposit="3300" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="4400"  />
+    <Order Time="60s" Build="JapanNavalYardEgg" />
+    <Order Time="90s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_ProStandardAirStart_1Apollo2Vindi"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedAirfield" />
+    <Order Build="AlliedFighterAircraft" />
+    <Order Build="AlliedAntiGroundAircraft" />
+    <Order Build="AlliedAntiGroundAircraft" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="105s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_SovietFastAF"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietAirfield" />
+    <Order Time="140s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="S_SovietFastAF_WF"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietAirfield" />
+    <Order Time="140s" Account="PRODUCTION" Deposit="2200" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="175s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_SovietFastAF_WF"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2200" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietAirfield" />
+    <Order Time="140s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="175s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_SuperBeforeWarfactory"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="5000" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="120s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_DoubleNavalYard_WithRax"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Time="45s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="55s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="1500" />
+    <Order Time="80s" Account="PRODUCTION" Deposit="1000" />
+    <Order Time="85s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="IamFedOpening"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="47s" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="50s" Account="PRODUCTION" Deposit="1000" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="1200" />
+    <Order Build="JapanWarFactoryEgg" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="1200" />
+    <Order Time="120s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Time="135s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_TripleRaxStart"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="AlliedBarracks" />
+    <Order Time="20s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Time="70s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedBarracks" />
+    <Order Time="95s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_NewDualWF"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="2400" />
+    <Order Time="105s" Account="PRODUCTION" Deposit="1400" />
+    <Order Time="115s" />
+    <Order Build="SovietWarFactory" />
+    <Order Time="135s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="JB_DualRax_Naval"
+    Side="PlayerTemplate:Japan">
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanBarracksEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Build="JapanRefineryEgg" />
+    <Order Time="25s" Account="PRODUCTION" Deposit="500" />
+    <Order Time="30s" Account="PRODUCTION" Deposit="2900" />
+    <Order Build="JapanPowerPlantEgg" />
+    <Order Build="JapanNavalYardEgg" />
+    <Order Time="60s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Time="80s" Account="PRODUCTION" Deposit="2200"  />
+    <Order Time="95s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_Warfactory_Tech2_AirEnd"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2000" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlantAdvanced" />
+    <Order Time="120s" />
+    <Order Build="SovietAirfield" />
+    <Order Time="135s" Account="PRODUCTION" Deposit="2400"  />
+    <Order Time="150s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_NYStart_T2End"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedNavalYard" />
+    <Order Time="75s" Account="PRODUCTION" Deposit="1800" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="Upgrade_AlliedTech2" />
+    <Order Time="110s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="SB_Rax_Naval_Warfactory"
+    Side="PlayerTemplate:Soviet">
+    <Order Build="SovietBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="3200" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietRefinery" />
+    <Order Build="SovietPowerPlant" />
+    <Order Build="SovietNavalYard" />
+    <Order Time="90s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="SovietWarfactory" />
+    <Order Time="115s"/>
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB_Rax_AF_ChronoRush"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedBarracks" />
+    <Order Time="10s" Account="PRODUCTION" Deposit="3000" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedAirfield" />
+    <Order Time="85s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedBaseDefense" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedTechStructure" />
+    <Order Time="115s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="AlliedSuperWeapon" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="155s" />
+  </SkirmishOpeningMove>
+
+  <SkirmishOpeningMove
+    id="AB__NY_ChronoRush"
+    Side="PlayerTemplate:Allies">
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedRefinery" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedNavalYard" />
+    <Order Time="75s" Account="PRODUCTION" Deposit="2400" />
+    <Order Build="AlliedBaseDefense" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Build="AlliedTechStructure" />
+    <Order Time="115s" Account="PRODUCTION" Deposit="1600" />
+    <Order Build="AlliedSuperWeapon" />
+    <Order Build="AlliedPowerPlant" />
+    <Order Time="155s" />
+  </SkirmishOpeningMove>
+
+</AssetDeclaration>

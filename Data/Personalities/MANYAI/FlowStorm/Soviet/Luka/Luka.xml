@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AssetDeclaration xmlns="uri:ea.com:eala:asset" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Tags></Tags>
+  
+  <Includes>
+    <Include type="instance" source="LukaSovietCoopBaseSkirmishPersonality.xml" />
+  </Includes>
+  
+  <AIPersonalityDefinition
+		id="Luka"
+		PersonalityType="Luka"
+		inheritFrom="LukaSovietCoopBaseSkirmishPersonality"
+		SkirmishPersonality="true"
+		PersonalityUIName="Personality:Luka"
+		>
+    <UnitCap Cap="150" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <OpeningMove Name="SovietStandard" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+    <OpeningMove Name="SovietIsland" Weight="100%" Difficulty="MEDIUM">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+    <OpeningMove Name="SB_Warfactory_Tech2End" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="true" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+    
+
+    <OpeningMove Name="SB_islandNaval" Weight="100%" Difficulty="HARD BRUTAL">
+      <Heuristic>
+        <PathToTargetHeuristic PathExists="false" ObjectTypeToUseForTest="SovietAntiInfantryInfantry" LocomotorConditionToUseForTest="NORMAL" />
+      </Heuristic>
+    </OpeningMove>
+
+
+    <!-- Easy to swap STATES -->
+
+    <!-- FLOWSTORM ATTACK STATES -->
+		<StrategicState id="LUKA_FLOW" State="LUKA_FLOW" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="LUKA_STORM" State="LUKA_STORM" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="LUKAFLOWSTORMATTACK" State="LUKAFLOWSTORMATTACK" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="LUKA_STORM_LATESTAGE" State="LUKA_STORM_LATESTAGE" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="Water_SimpleAttack_2to20_NavalAttackMicro" State="Water_SimpleAttack_2to20_NavalAttackMicro" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- ATTACK AT 10 STATE -->
+		<StrategicState id="FS_SimpleAttack_15to45_SuicideMicro" State="FS_SimpleAttack_15to45_SuicideMicro" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+        <!-- FLOWSTORM STATES -->
+		<StrategicState id="FlowStormGuardians" State="FlowStormGuardians" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+		<StrategicState id="FlowStormReactiveDefense_Luka" State="FlowStormReactiveDefense_Luka" Difficulty="EASY MEDIUM HARD BRUTAL"/>
+
+    <!-- TECH STATES -->
+    <BuildState id="SuperiorSovietsTechBuildState" State="SuperiorSovietsTechBuildState" Difficulty="HARD"/>
+    <BuildState id="SuperiorBrutalSovietsTechBuildState" State="SuperiorBrutalSovietsTechBuildState" Difficulty="BRUTAL"/>
+
+    <!-- EXPANSION STATES -->
+    <StrategicState id="SuperiorSovietsExpansion" State="SuperiorSovietsExpansion" Difficulty="HARD"/>
+    <StrategicState id="SuperiorSovietsExpansionFaster" State="SuperiorSovietsExpansionFaster" Difficulty="HARD"/>
+
+    <StrategicState id="SuperiorBrutalSovietsExpansion" State="SuperiorBrutalSovietsExpansion" Difficulty="BRUTAL"/>
+
+
+    <!-- BRUTAL BUILD STATES -->
+    <BuildState id="SuperiorBrutalSovietWarfactorySpam" State="SuperiorBrutalSovietWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalSovietNavalYardSpam" State="SuperiorBrutalSovietNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorBrutalSovietAirfieldSpam" State="SuperiorBrutalSovietAirfieldSpam" Difficulty="BRUTAL"/>
+
+        <!-- BRUTAL INFINITE MONEY BUILD STATES -->
+    <BuildState id="SuperiorINFINITEBrutalSovietWarfactorySpam" State="SuperiorINFINITEBrutalSovietWarfactorySpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietNavalYardSpam" State="SuperiorINFINITEBrutalSovietNavalYardSpam" Difficulty="BRUTAL"/>
+    <BuildState id="SuperiorINFINITEBrutalSovietAirfieldSpam" State="SuperiorINFINITEBrutalSovietAirfieldSpam" Difficulty="BRUTAL"/>
+
+    <StrategicState id="INFINITEMONEY_SENDALLTOKILL" State="INFINITEMONEY_SENDALLTOKILL" Difficulty="BRUTAL"/>
+
+
+    <!-- TEAM WORK STATES -->
+    <StrategicState id="SuperiorDefendAllyAircraft" State="SuperiorDefendAllyAircraft" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietDefendAllyOnLand" State="SuperiorSovietDefendAllyOnLand" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietDefendAllyOnWater" State="SuperiorSovietDefendAllyOnWater" Difficulty="HARD BRUTAL"/>
+    <StrategicState id="SuperiorSovietSupportAllyAttack" State="SuperiorSovietSupportAllyAttack" Difficulty="HARD BRUTAL"/>
+
+    <!-- SPECIAL STATES -->
+
+
+
+    <!-- Unit Preferences -->
+
+<!-- POWER PREFS -->
+    <PowerChoice PlayerPower="PlayerTech_Soviet_ProductionKickbacks" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank1" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank2" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_DesolatorBomb_Rank3" Weight="999999%"/>
+    <PowerChoice PlayerPower="PlayerTech_Soviet_MagneticSingularity" Weight="999999%"/>
+
+
+  </AIPersonalityDefinition>
+  
+</AssetDeclaration>
